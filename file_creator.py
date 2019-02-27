@@ -110,11 +110,25 @@ def get_table_name():
     if len(table_list) == 0:
         # print('no values')
         return ('Not available',)
+        # need to fix
     else:
         t, _ = (table_list)
         return t
 
 
+def get_consumer_readings(connectionNumber):
+    con = sqlite3.connect('ReadingsV1onAPP.db')
+    cursor = con.cursor()
+    args = "SELECT connection, ImportUnits, ExportUnits, DifUnits FROM 'January2019' WHERE consumer = '{}'".format(connectionNumber)
+    cursor.execute(args)
+    results = cursor.fetchall()
+    # print(len(results))
+    if len(results) == 0:
+        return ('Not available',)
+    return results
+
+
+# print(get_consumer_readings('079204720584'))
 # downloadvalues('January2019')
 
 # xldownloader('C:/Users/home/Documents/sample.xlsx', 'January2019')

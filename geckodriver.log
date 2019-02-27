@@ -276,4 +276,19 @@ extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: 
 [Child 2772, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Child 277[Child 6192, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Child 6192, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_w[Child 3712, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 3712, Chrome_ChildThread] WARNING: pipe error: 109: fil
+[Child 3712, Chrome_ChildThread] WARNING: pipe error: 109: fil1551250881919	mozrunner::runner	INFO	Running command: "C:/Program Files/Mozilla Firefox/firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\KARTHI~1\\AppData\\Local\\Temp\\rust_mozprofile.9XgKCzyKKvR0"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\Karthikeyan\AppData\Local\openvr\openvrpaths.vrpath
+[Child 2084, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\Karthikeyan\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 4904, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1551250896497	Marionette	INFO	Listening on port 7356
+1551250896981	Marionette	WARN	TLS certificate errors will be ignored for this session
+Unable to read VR Path Registry from C:\Users\Karthikeyan\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7588, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7588, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\Karthikeyan\AppData\Local\openvr\openvrpaths.vrpath
+[Child 2412, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\Karthikeyan\AppData\Local\openvr\openvrpaths.vrpath
+[Child 6712, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
