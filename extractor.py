@@ -15,7 +15,7 @@ import time
 def scrape(uname, pword, month, year):
     " webdriver created here"
     options = Options()
-    options.headless = True
+    options.headless = False
     binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
     driver = webdriver.Firefox(options=options, firefox_binary=binary)
     results = get_values(driver, url, uname, pword, month, year)
@@ -110,7 +110,7 @@ def extract_values(uname, html, month, year, status):
 
     else:
         timestr = time.asctime()
-        logging.info(status)
+        logging.info('{} : {}'.format(timestr, status))
         with open('failed summary.txt', 'a+') as file:
             file.write("{} failed to get values\n".format(uname))
             file.close()
