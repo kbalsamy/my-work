@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup as BS
 from constants import *
 import logging
 import time
+import sqlite3
 
 
 def db_connect():
@@ -17,7 +18,7 @@ def db_connect():
     return con
 
 
-def scrape(servicelist=None, uname=None, pword, month, year):
+def scrape(pword, month, year, servicelist=None, uname=None):
     " webdriver created here"
     options = Options()
     options.headless = True
@@ -96,8 +97,7 @@ def get_values(driver, url, uname, pword, month, year, activatedb=None):
             status = "Time out, please try again or contact admin."
 
             if activatedb:
-
-                scrape_results = extract_values(uname, html, month, year, status, dbconnect=db_connect())
+                scrape_results = extract_values(uname, None, month, year, status, dbconnect=db_connect())
             else:
                 scrape_results = extract_values(uname, None, month, year, status)
                 return scrape_results
@@ -107,7 +107,7 @@ def get_values(driver, url, uname, pword, month, year, activatedb=None):
         status = "Check your internet connection"
         if activatedb:
 
-            scrape_results = extract_values(uname, html, month, year, status, dbconnect=db_connect())
+            scrape_results = extract_values(uname, None, month, year, status, dbconnect=db_connect())
         else:
             scrape_results = extract_values(uname, None, month, year, status)
             return scrape_results
@@ -141,15 +141,15 @@ def extract_values(uname, html, month, year, status, dbconnect=None):
         timestr = time.asctime()
         logging.info('{} : Data fetched for {}'.format(timestr, uname))
         if dbconnect:
-            cursor = con.cursor()
-        create_table = """CREATE TABLE IF NOT EXISTS {} (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, consumer TEXT, Connection TEXT, ImportUnits REAL, ExportUnits REAL, DifUnits REAL)""".format(tablename)
-        cursor.execute(create_table)
-        for item in results:
-            differnce = float(item[8]) - float(item[4])
-            insert_values = """INSERT INTO {} (consumer, Connection, ImportUnits, ExportUnits, DifUnits) VALUES(?, ?, ?, ?, ?)""".format(tablename)
-            cursor.execute(insert_values, (CID, item[0], float(item[4]), float(item[8]), differnce))
-            logging.info('{}:values updated into database for {}'.format(timestr, CID))
-            con.commit()
+            cursor = dbconnect.cursor()
+            create_table = """CREATE TABLE IF NOT EXISTS {} (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, consumer TEXT, Connection TEXT, ImportUnits REAL, ExportUnits REAL, DifUnits REAL)""".format(tablename)
+            cursor.execute(create_table)
+            for item in results:
+                differnce = float(item[8]) - float(item[4])
+                insert_values = """INSERT INTO {} (consumer, Connection, ImportUnits, ExportUnits, DifUnits) VALUES(?, ?, ?, ?, ?)""".format(tablename)
+                cursor.execute(insert_values, (uname, item[0], float(item[4]), float(item[8]), differnce))
+                logging.info('{}:values updated into database for {}'.format(timestr, uname))
+                dbconnect.commit()
         else:
             return final
 

@@ -22,15 +22,18 @@ class databaseFrame(Frame):
 
         search_pane = Frame(self.master, bd=3, relief=GROOVE)
         search_pane.pack(side=TOP, fill=BOTH, expand=1)
+        self.refresh = Button(search_pane, text='Refresh', command=self.check_db_latest).pack(side=TOP)
         Label(search_pane, text='Search Database here', anchor='w').pack(side=TOP, fill=X, expand=1)
         Label(search_pane, text='Select available Database here', anchor='w').pack(side=LEFT)
         self.tablename.set('select')
-        OptionMenu(search_pane, self.tablename, *self.av_db, command=self.getTablename).pack(side=LEFT, anchor='w')
+        self.op = OptionMenu(search_pane, self.tablename, *self.av_db, command=self.getTablename)
+        self.op.pack(side=LEFT, anchor='w')
         self.btn1 = Button(search_pane, text='Display', state=DISABLED, command=self.show_db_table)
         self.btn1.pack(side=LEFT)
-
         btn2 = Button(search_pane, text='Clear', command=lambda: self.clear_display(btn1=True))
         btn2.pack(side=LEFT)
+        self.dlbtn = Button(search_pane, text='Download Excel', state=DISABLED, command=self.file_to_save)
+        self.dlbtn.pack(side=LEFT)
 
         search_pane2 = Frame(self.master, bd=5, relief=GROOVE)
         search_pane2.pack(side=TOP, fill=BOTH, expand=1)
@@ -45,13 +48,30 @@ class databaseFrame(Frame):
         self.btn3.pack(side=LEFT)
         Button(search_pane2, text='Clear', command=lambda: self.clear_display(btn2=True)).pack(side=LEFT)
 
+    def check_db_latest(self):
+        self.av_db = excel.get_table_name()
+        menu = self.op['menu']
+        menu.delete(0, 'end')
+        for val in self.av_db:
+            menu.add_command(label=val, command=lambda: self.tablename.set(val))
+
+        if self.tablename.get() == 'Not available' or self.tablename.get() == 'select':
+            self.btn1.configure(state=DISABLED)
+            self.dlbtn.configure(state=DISABLED)
+        else:
+            self.btn1.configure(state=ACTIVE)
+            self.dlbtn.configure(state=ACTIVE)
+
     def getTablename(self, event):
         # function used to check the optionmenu selection and trigger button availabilty
         selected = self.tablename.get()
-        if self.av_db == 'Not available' or self.tablename.get() == 'select':
+        if self.tablename.get() == 'Not available' or self.tablename.get() == 'select':
             self.btn1.configure(state=DISABLED)
+            self.dlbtn.configure(state=DISABLED)
+
         else:
             self.btn1.configure(state=ACTIVE)
+            self.dlbtn.configure(state=ACTIVE)
 
     def clear_display(self, btn1=None, btn2=None):
         wid = self.display.winfo_children()
@@ -111,3 +131,17 @@ class databaseFrame(Frame):
 
     def close_status(self, button):
         self.status.deactivate()
+
+    def file_to_save(self):
+        filename = filedialog.asksaveasfilename(initialdir="/", title="Select file",
+                                                filetypes=(("Excel workbook", "*.xlsx"), ("all files", "*.*")))
+        print(filename)
+        # print(filename)
+        if filename:
+            tablename = self.tablename.get()
+            d = excel.xldownloader("{}.xlsx".format(filename), tablename)
+            if d == 'Finished':
+                logging.info('Excel file download Finished')
+        else:
+            timestr = time.asctime()
+            logging.info('{} : Excel file Download Cancelled '.format(timestr))

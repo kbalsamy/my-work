@@ -1,0 +1,1849 @@
+<html><head><base href="/oa/"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0"><meta http-equiv="expires" content="0"><meta http-equiv="pragma" content="no-cache"><title>Open Access Application and Approval</title><link rel="icon" type="image/x-icon" href="favicon.ico"><script type="text/javascript">window.paceOptions={document:!0,eventLag:!0,restartOnPushState:!0,restartOnRequestAfter:!0,ajax:{trackMethods:["POST","GET"]}};</script><link href="/oa/styles.8cea46abfdfe64b1f5f0.bundle.css" rel="stylesheet"><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><script type="text/javascript" charset="utf-8" async="" src="/oa/0.ab8c1de9ee0940bbbeea.chunk.js"></script><script type="text/javascript" charset="utf-8" async="" src="/oa/4.baf687933a8512c4e5e2.chunk.js"></script><style>[_nghost-c0]     .mat-sidenav-content {padding: 0;} .mat-sidenav-container[_ngcontent-c0] {z-index: 4000}</style><style>.mat-drawer-container{position:relative;z-index:1;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-opened{overflow:hidden}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:background-color,visibility}@media screen and (-ms-high-contrast:active){.mat-drawer-backdrop{opacity:.5}}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;display:block;position:absolute;top:0;bottom:0;z-index:3;min-width:5vw;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%,0,0)}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%,0,0)}[dir=rtl] .mat-drawer{transform:translate3d(100%,0,0)}[dir=rtl] .mat-drawer.mat-drawer-end{left:0;right:auto;transform:translate3d(-100%,0,0)}.mat-drawer.mat-drawer-opened:not(.mat-drawer-side),.mat-drawer.mat-drawer-opening:not(.mat-drawer-side){box-shadow:0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12)}.mat-sidenav-fixed{position:fixed}</style><style>.session-content[_ngcontent-c2]{background-size:auto;background-repeat:no-repeat;background-position:50%;background-image:url(/oa/energy-bg.f8d00d375cccf0b377e0.jpg);height:100%;width:100%;padding:20px 0;position:fixed}.login-box[_ngcontent-c2]{width:350px;margin:0 auto}.login-sidebar[_ngcontent-c2]   .login-box[_ngcontent-c2]{right:0;position:absolute;top:0}@media (min-width:768px){.login-sidebar[_ngcontent-c2]   .login-box[_ngcontent-c2]{height:100vh}}@media (max-width:767px){.login-sidebar[_ngcontent-c2]   .login-box[_ngcontent-c2]{position:relative!important}}</style><style type="text/css">/*
+  @angular/flex-layout - workaround for possible browser quirk with mediaQuery listeners
+  see http://bit.ly/2sd4HMP
+*/
+@media (min-width: 600px), (max-width: 599px), (min-width: 960px), (max-width: 959px), (min-width: 1280px), (max-width: 1279px), (min-width: 1920px), (max-width: 1920px), (min-width: 600px) and (max-width: 959px), (min-width: 960px) and (max-width: 1279px), (min-width: 1280px) and (max-width: 1919px), (min-width: 1920px) and (max-width: 5000px) {.fx-query-test{ }}</style><style>.mat-card{transition:box-shadow 280ms cubic-bezier(.4,0,.2,1);display:block;position:relative;padding:24px;border-radius:2px}.mat-card:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}@media screen and (-ms-high-contrast:active){.mat-card{outline:solid 1px}}.mat-card-flat{box-shadow:none}.mat-card-actions,.mat-card-content,.mat-card-subtitle,.mat-card-title{display:block;margin-bottom:16px}.mat-card-actions{margin-left:-16px;margin-right:-16px;padding:8px 0}.mat-card-actions-align-end{display:flex;justify-content:flex-end}.mat-card-image{width:calc(100% + 48px);margin:0 -24px 16px -24px}.mat-card-xl-image{width:240px;height:240px;margin:-8px}.mat-card-footer{display:block;margin:0 -24px -24px -24px}.mat-card-actions .mat-button,.mat-card-actions .mat-raised-button{margin:0 4px}.mat-card-header{display:flex;flex-direction:row}.mat-card-header-text{margin:0 8px}.mat-card-avatar{height:40px;width:40px;border-radius:50%;flex-shrink:0}.mat-card-lg-image,.mat-card-md-image,.mat-card-sm-image{margin:-8px 0}.mat-card-title-group{display:flex;justify-content:space-between;margin:0 -8px}.mat-card-sm-image{width:80px;height:80px}.mat-card-md-image{width:112px;height:112px}.mat-card-lg-image{width:152px;height:152px}@media (max-width:600px){.mat-card{padding:24px 16px}.mat-card-actions{margin-left:-8px;margin-right:-8px}.mat-card-image{width:calc(100% + 32px);margin:16px -16px}.mat-card-title-group{margin:0}.mat-card-xl-image{margin-left:0;margin-right:0}.mat-card-header{margin:-8px 0 0 0}.mat-card-footer{margin-left:-16px;margin-right:-16px}}.mat-card-content>:first-child,.mat-card>:first-child{margin-top:0}.mat-card-content>:last-child:not(.mat-card-footer),.mat-card>:last-child:not(.mat-card-footer){margin-bottom:0}.mat-card-image:first-child{margin-top:-24px}.mat-card>.mat-card-actions:last-child{margin-bottom:-16px;padding-bottom:0}.mat-card-actions .mat-button:first-child,.mat-card-actions .mat-raised-button:first-child{margin-left:0;margin-right:0}.mat-card-subtitle:not(:first-child),.mat-card-title:not(:first-child){margin-top:-4px}.mat-card-header .mat-card-subtitle:not(:first-child){margin-top:-8px}.mat-card>.mat-card-xl-image:first-child{margin-top:-8px}.mat-card>.mat-card-xl-image:last-child{margin-bottom:-8px}</style><style>.mat-form-field{display:inline-block;position:relative;text-align:left}[dir=rtl] .mat-form-field{text-align:right}.mat-form-field-wrapper{position:relative}.mat-form-field-flex{display:inline-flex;align-items:baseline;width:100%}.mat-form-field-prefix,.mat-form-field-suffix{white-space:nowrap;flex:none}.mat-form-field-prefix .mat-icon,.mat-form-field-suffix .mat-icon{width:1em}.mat-form-field-prefix .mat-icon-button,.mat-form-field-suffix .mat-icon-button{font:inherit;vertical-align:baseline}.mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field-suffix .mat-icon-button .mat-icon{font-size:inherit}.mat-form-field-infix{display:block;position:relative;flex:auto;min-width:0}.mat-form-field-placeholder-wrapper{position:absolute;left:0;box-sizing:content-box;width:100%;height:100%;overflow:hidden;pointer-events:none}.mat-form-field-placeholder{position:absolute;left:0;font:inherit;pointer-events:none;width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;transform:perspective(100px);-ms-transform:none;transform-origin:0 0;transition:transform .4s cubic-bezier(.25,.8,.25,1),color .4s cubic-bezier(.25,.8,.25,1),width .4s cubic-bezier(.25,.8,.25,1);display:none}[dir=rtl] .mat-form-field-placeholder{transform-origin:100% 0;left:auto;right:0}.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,.mat-form-field-empty.mat-form-field-placeholder{display:block}.mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-placeholder-wrapper .mat-form-field-placeholder{display:none}.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-placeholder-wrapper .mat-form-field-placeholder{display:block;transition:none}.mat-form-field-placeholder:not(.mat-form-field-empty){transition:none}.mat-form-field-underline{position:absolute;height:1px;width:100%}.mat-form-field-underline.mat-disabled{background-position:0;background-color:transparent}.mat-form-field-underline .mat-form-field-ripple{position:absolute;height:1px;top:0;left:0;width:100%;transform-origin:50%;transform:scaleX(.5);visibility:hidden;transition:background-color .3s cubic-bezier(.55,0,.55,.2)}.mat-focused .mat-form-field-underline .mat-form-field-ripple{height:2px}.mat-focused .mat-form-field-underline .mat-form-field-ripple,.mat-form-field-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}.mat-form-field-subscript-wrapper{position:absolute;width:100%;overflow:hidden}.mat-form-field-placeholder-wrapper .mat-icon,.mat-form-field-subscript-wrapper .mat-icon{width:1em;height:1em;font-size:inherit;vertical-align:baseline}.mat-form-field-hint-wrapper{display:flex}.mat-form-field-hint-spacer{flex:1 0 1em}.mat-error{display:block} .mat-input-element{font:inherit;background:0 0;color:currentColor;border:none;outline:0;padding:0;margin:0;width:100%;max-width:100%;vertical-align:bottom}.mat-input-element:-moz-ui-invalid{box-shadow:none}.mat-input-element::placeholder{color:transparent!important}.mat-input-element::-moz-placeholder{color:transparent!important}.mat-input-element::-webkit-input-placeholder{color:transparent!important}.mat-input-element:-ms-input-placeholder{color:transparent!important}textarea.mat-input-element{resize:vertical;overflow:auto}</style><style>.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px}[disabled].mat-button,[disabled].mat-fab,[disabled].mat-icon-button,[disabled].mat-mini-fab,[disabled].mat-raised-button{cursor:default}.cdk-keyboard-focused.mat-button .mat-button-focus-overlay,.cdk-keyboard-focused.mat-fab .mat-button-focus-overlay,.cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay,.cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay,.cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay{opacity:1}.mat-button::-moz-focus-inner,.mat-fab::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-mini-fab::-moz-focus-inner,.mat-raised-button::-moz-focus-inner{border:0}.mat-fab,.mat-mini-fab,.mat-raised-button{transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)}.mat-fab:not([class*=mat-elevation-z]),.mat-mini-fab:not([class*=mat-elevation-z]),.mat-raised-button:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]),.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]),.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}[disabled].mat-fab,[disabled].mat-mini-fab,[disabled].mat-raised-button{box-shadow:none}.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{transition:none;opacity:0}.mat-button:hover .mat-button-focus-overlay{opacity:1}.mat-fab{min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button .mat-icon,.mat-icon-button i{line-height:24px}.mat-button,.mat-icon-button,.mat-raised-button{color:currentColor}.mat-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*{vertical-align:middle}.mat-button-focus-overlay,.mat-button-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-button-focus-overlay{background-color:rgba(0,0,0,.12);border-radius:inherit;opacity:0;transition:opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s cubic-bezier(.35,0,.25,1)}@media screen and (-ms-high-contrast:active){.mat-button-focus-overlay{background-color:rgba(255,255,255,.5)}}.mat-button-ripple-round{border-radius:50%;z-index:1}@media screen and (-ms-high-contrast:active){.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{outline:solid 1px}}</style><script type="text/javascript" charset="utf-8" async="" src="/oa/1.4b4ffce0699458ca79f9.chunk.js"></script><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style>.mat-toolbar{display:flex;box-sizing:border-box;width:100%;padding:0 16px;flex-direction:column}.mat-toolbar .mat-toolbar-row{display:flex;box-sizing:border-box;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar{min-height:64px}.mat-toolbar-row{height:64px}@media (max-width:600px){.mat-toolbar{min-height:56px}.mat-toolbar-row{height:56px}}</style><style>.mat-icon{background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px}</style><style>.mat-menu-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 48px);border-radius:2px}.mat-menu-panel:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.mat-menu-panel.mat-menu-after.mat-menu-below{transform-origin:left top}.mat-menu-panel.mat-menu-after.mat-menu-above{transform-origin:left bottom}.mat-menu-panel.mat-menu-before.mat-menu-below{transform-origin:right top}.mat-menu-panel.mat-menu-before.mat-menu-above{transform-origin:right bottom}[dir=rtl] .mat-menu-panel.mat-menu-after.mat-menu-below{transform-origin:right top}[dir=rtl] .mat-menu-panel.mat-menu-after.mat-menu-above{transform-origin:right bottom}[dir=rtl] .mat-menu-panel.mat-menu-before.mat-menu-below{transform-origin:left top}[dir=rtl] .mat-menu-panel.mat-menu-before.mat-menu-above{transform-origin:left bottom}.mat-menu-panel.ng-animating{pointer-events:none}@media screen and (-ms-high-contrast:active){.mat-menu-panel{outline:solid 1px}}.mat-menu-content{padding-top:8px;padding-bottom:8px}.mat-menu-item{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:48px;height:48px;padding:0 16px;text-align:left;text-decoration:none;position:relative}.mat-menu-item[disabled]{cursor:default}[dir=rtl] .mat-menu-item{text-align:right}.mat-menu-item .mat-icon{margin-right:16px}[dir=rtl] .mat-menu-item .mat-icon{margin-left:16px;margin-right:0}.mat-menu-item .mat-icon{vertical-align:middle}.mat-menu-item-submenu-trigger{padding-right:32px}.mat-menu-item-submenu-trigger::after{width:0;height:0;border-style:solid;border-width:5px 0 5px 5px;border-color:transparent transparent transparent currentColor;content:'';display:inline-block;position:absolute;top:50%;right:16px;transform:translateY(-50%)}[dir=rtl] .mat-menu-item-submenu-trigger{padding-right:8px;padding-left:32px}[dir=rtl] .mat-menu-item-submenu-trigger::after{right:auto;left:16px;transform:rotateY(180deg) translateY(-50%)}button.mat-menu-item{width:100%}.mat-menu-ripple{top:0;left:0;right:0;bottom:0;position:absolute}</style><style>.mat-subheader{display:flex;box-sizing:border-box;padding:16px;align-items:center}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{margin:0}.mat-list,.mat-nav-list,.mat-selection-list{padding-top:8px;display:block}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{height:48px;line-height:16px}.mat-list .mat-subheader:first-child,.mat-nav-list .mat-subheader:first-child,.mat-selection-list .mat-subheader:first-child{margin-top:-8px}.mat-list .mat-list-item,.mat-nav-list .mat-list-item,.mat-selection-list .mat-list-item{display:block}.mat-list .mat-list-item .mat-list-item-content,.mat-nav-list .mat-list-item .mat-list-item-content,.mat-selection-list .mat-list-item .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;height:48px;padding:0 16px;position:relative}.mat-list .mat-list-item .mat-list-item-content-reverse,.mat-nav-list .mat-list-item .mat-list-item-content-reverse,.mat-selection-list .mat-list-item .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list .mat-list-item .mat-list-item-ripple,.mat-nav-list .mat-list-item .mat-list-item-ripple,.mat-selection-list .mat-list-item .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list .mat-list-item.mat-list-item-avatar .mat-list-item-content,.mat-nav-list .mat-list-item.mat-list-item-avatar .mat-list-item-content,.mat-selection-list .mat-list-item.mat-list-item-avatar .mat-list-item-content{height:56px}.mat-list .mat-list-item.mat-2-line .mat-list-item-content,.mat-nav-list .mat-list-item.mat-2-line .mat-list-item-content,.mat-selection-list .mat-list-item.mat-2-line .mat-list-item-content{height:72px}.mat-list .mat-list-item.mat-3-line .mat-list-item-content,.mat-nav-list .mat-list-item.mat-3-line .mat-list-item-content,.mat-selection-list .mat-list-item.mat-3-line .mat-list-item-content{height:88px}.mat-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-item.mat-multi-line .mat-list-item-content{height:100%;padding:8px 16px}.mat-list .mat-list-item .mat-list-text,.mat-nav-list .mat-list-item .mat-list-text,.mat-selection-list .mat-list-item .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list .mat-list-item .mat-list-text>*,.mat-nav-list .mat-list-item .mat-list-text>*,.mat-selection-list .mat-list-item .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list .mat-list-item .mat-list-text:empty,.mat-nav-list .mat-list-item .mat-list-text:empty,.mat-selection-list .mat-list-item .mat-list-text:empty{display:none}.mat-list .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list .mat-list-item .mat-list-text:nth-child(2){padding:0}.mat-list .mat-list-item .mat-list-avatar,.mat-nav-list .mat-list-item .mat-list-avatar,.mat-selection-list .mat-list-item .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list .mat-list-item .mat-list-icon,.mat-nav-list .mat-list-item .mat-list-icon,.mat-selection-list .mat-list-item .mat-list-icon{width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list .mat-list-option,.mat-nav-list .mat-list-option,.mat-selection-list .mat-list-option{display:block}.mat-list .mat-list-option .mat-list-item-content,.mat-nav-list .mat-list-option .mat-list-item-content,.mat-selection-list .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;height:48px;padding:0 16px;position:relative}.mat-list .mat-list-option .mat-list-item-content-reverse,.mat-nav-list .mat-list-option .mat-list-item-content-reverse,.mat-selection-list .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list .mat-list-option .mat-list-item-ripple,.mat-nav-list .mat-list-option .mat-list-item-ripple,.mat-selection-list .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list .mat-list-option.mat-list-item-avatar .mat-list-item-content,.mat-nav-list .mat-list-option.mat-list-item-avatar .mat-list-item-content,.mat-selection-list .mat-list-option.mat-list-item-avatar .mat-list-item-content{height:56px}.mat-list .mat-list-option.mat-2-line .mat-list-item-content,.mat-nav-list .mat-list-option.mat-2-line .mat-list-item-content,.mat-selection-list .mat-list-option.mat-2-line .mat-list-item-content{height:72px}.mat-list .mat-list-option.mat-3-line .mat-list-item-content,.mat-nav-list .mat-list-option.mat-3-line .mat-list-item-content,.mat-selection-list .mat-list-option.mat-3-line .mat-list-item-content{height:88px}.mat-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-option.mat-multi-line .mat-list-item-content{height:100%;padding:8px 16px}.mat-list .mat-list-option .mat-list-text,.mat-nav-list .mat-list-option .mat-list-text,.mat-selection-list .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list .mat-list-option .mat-list-text>*,.mat-nav-list .mat-list-option .mat-list-text>*,.mat-selection-list .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list .mat-list-option .mat-list-text:empty,.mat-nav-list .mat-list-option .mat-list-text:empty,.mat-selection-list .mat-list-option .mat-list-text:empty{display:none}.mat-list .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list .mat-list-option .mat-list-avatar,.mat-nav-list .mat-list-option .mat-list-avatar,.mat-selection-list .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list .mat-list-option .mat-list-icon,.mat-nav-list .mat-list-option .mat-list-icon,.mat-selection-list .mat-list-option .mat-list-icon{width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list[dense],.mat-nav-list[dense],.mat-selection-list[dense]{padding-top:4px;display:block}.mat-list[dense] .mat-subheader,.mat-nav-list[dense] .mat-subheader,.mat-selection-list[dense] .mat-subheader{height:40px;line-height:8px}.mat-list[dense] .mat-subheader:first-child,.mat-nav-list[dense] .mat-subheader:first-child,.mat-selection-list[dense] .mat-subheader:first-child{margin-top:-4px}.mat-list[dense] .mat-list-item,.mat-nav-list[dense] .mat-list-item,.mat-selection-list[dense] .mat-list-item{display:block}.mat-list[dense] .mat-list-item .mat-list-item-content,.mat-nav-list[dense] .mat-list-item .mat-list-item-content,.mat-selection-list[dense] .mat-list-item .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;height:40px;padding:0 16px;position:relative}.mat-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list[dense] .mat-list-item .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-item .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-item .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list[dense] .mat-list-item.mat-list-item-avatar .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-list-item-avatar .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-list-item-avatar .mat-list-item-content{height:48px}.mat-list[dense] .mat-list-item.mat-2-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-2-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-2-line .mat-list-item-content{height:60px}.mat-list[dense] .mat-list-item.mat-3-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-3-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-3-line .mat-list-item-content{height:76px}.mat-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content{height:100%;padding:8px 16px}.mat-list[dense] .mat-list-item .mat-list-text,.mat-nav-list[dense] .mat-list-item .mat-list-text,.mat-selection-list[dense] .mat-list-item .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list[dense] .mat-list-item .mat-list-text>*,.mat-nav-list[dense] .mat-list-item .mat-list-text>*,.mat-selection-list[dense] .mat-list-item .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list[dense] .mat-list-item .mat-list-text:empty,.mat-nav-list[dense] .mat-list-item .mat-list-text:empty,.mat-selection-list[dense] .mat-list-item .mat-list-text:empty{display:none}.mat-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-item .mat-list-text:nth-child(2){padding:0}.mat-list[dense] .mat-list-item .mat-list-avatar,.mat-nav-list[dense] .mat-list-item .mat-list-avatar,.mat-selection-list[dense] .mat-list-item .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list[dense] .mat-list-item .mat-list-icon,.mat-nav-list[dense] .mat-list-item .mat-list-icon,.mat-selection-list[dense] .mat-list-item .mat-list-icon{width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list[dense] .mat-list-option,.mat-nav-list[dense] .mat-list-option,.mat-selection-list[dense] .mat-list-option{display:block}.mat-list[dense] .mat-list-option .mat-list-item-content,.mat-nav-list[dense] .mat-list-option .mat-list-item-content,.mat-selection-list[dense] .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;height:40px;padding:0 16px;position:relative}.mat-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list[dense] .mat-list-option .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-option .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list[dense] .mat-list-option.mat-list-item-avatar .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-list-item-avatar .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-list-item-avatar .mat-list-item-content{height:48px}.mat-list[dense] .mat-list-option.mat-2-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-2-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-2-line .mat-list-item-content{height:60px}.mat-list[dense] .mat-list-option.mat-3-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-3-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-3-line .mat-list-item-content{height:76px}.mat-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content{height:100%;padding:8px 16px}.mat-list[dense] .mat-list-option .mat-list-text,.mat-nav-list[dense] .mat-list-option .mat-list-text,.mat-selection-list[dense] .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list[dense] .mat-list-option .mat-list-text>*,.mat-nav-list[dense] .mat-list-option .mat-list-text>*,.mat-selection-list[dense] .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list[dense] .mat-list-option .mat-list-text:empty,.mat-nav-list[dense] .mat-list-option .mat-list-text:empty,.mat-selection-list[dense] .mat-list-option .mat-list-text:empty{display:none}.mat-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list[dense] .mat-list-option .mat-list-avatar,.mat-nav-list[dense] .mat-list-option .mat-list-avatar,.mat-selection-list[dense] .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list[dense] .mat-list-option .mat-list-icon,.mat-nav-list[dense] .mat-list-option .mat-list-icon,.mat-selection-list[dense] .mat-list-option .mat-list-icon{width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-divider{display:block;border-top-style:solid;border-top-width:1px;margin:0}.mat-nav-list a{text-decoration:none;color:inherit}.mat-nav-list .mat-list-item-content{cursor:pointer}.mat-nav-list .mat-list-item-content.mat-list-item-focus,.mat-nav-list .mat-list-item-content:hover{outline:0}.mat-list-option:not([disabled]){cursor:pointer}</style><script type="text/javascript" charset="utf-8" async="" src="/oa/2.b86d22f650cfa711249d.chunk.js"></script><style></style><style>.mat-select{display:inline-block;width:100%;outline:0}.mat-select-trigger{display:inline-table;cursor:pointer;position:relative;box-sizing:border-box}.mat-select-disabled .mat-select-trigger{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default}.mat-select-value{display:table-cell;max-width:0;width:100%;overflow:hidden;text-overflow:ellipsis}.mat-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-select-arrow-wrapper{display:table-cell;vertical-align:middle}.mat-select-arrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid;margin:0 4px}.mat-select-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;padding-top:0;padding-bottom:0;max-height:256px;min-width:100%}.mat-select-panel:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}@media screen and (-ms-high-contrast:active){.mat-select-panel{outline:solid 1px}}.mat-select-panel .mat-optgroup-label,.mat-select-panel .mat-option{font-size:inherit;line-height:3em;height:3em}.mat-form-field-type-mat-select .mat-form-field-flex{cursor:pointer}.mat-form-field-type-mat-select .mat-form-field-placeholder{width:calc(100% - 18px)}</style><style>.ngx-datatable {
+  display: block;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  
+  
+  
+  
+  
+  
+  
+   }
+  .ngx-datatable [hidden] {
+    display: none !important; }
+  .ngx-datatable *, .ngx-datatable *:before, .ngx-datatable *:after {
+    box-sizing: border-box; }
+  .ngx-datatable.scroll-vertical .datatable-body {
+    overflow-y: auto; }
+    .ngx-datatable.scroll-vertical .datatable-body .datatable-row-wrapper {
+      position: absolute; }
+  .ngx-datatable.scroll-horz .datatable-body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; }
+  .ngx-datatable.fixed-header .datatable-header .datatable-header-inner {
+    white-space: nowrap; }
+    .ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  .ngx-datatable.fixed-row .datatable-scroll {
+    white-space: nowrap; }
+    .ngx-datatable.fixed-row .datatable-scroll .datatable-body-row {
+      white-space: nowrap; }
+      .ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+  .ngx-datatable .datatable-body-row,
+  .ngx-datatable .datatable-header-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-flow: row;
+    -o-flex-flow: row;
+    flex-flow: row; }
+  .ngx-datatable .datatable-body-cell,
+  .ngx-datatable .datatable-header-cell {
+    vertical-align: top;
+    display: inline-block;
+    line-height: 1.625;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none; }
+    .ngx-datatable .datatable-body-cell:focus,
+    .ngx-datatable .datatable-header-cell:focus {
+      outline: none; }
+  .ngx-datatable .datatable-row-left,
+  .ngx-datatable .datatable-row-right {
+    z-index: 9; }
+  .ngx-datatable .datatable-row-left,
+  .ngx-datatable .datatable-row-center,
+  .ngx-datatable .datatable-row-right {
+    position: relative; }
+  .ngx-datatable .datatable-header {
+    display: block;
+    overflow: hidden; }
+    .ngx-datatable .datatable-header .datatable-header-inner {
+      -webkit-box-align: stretch;
+          -ms-flex-align: stretch;
+              align-items: stretch;
+      -webkit-align-items: stretch; }
+    .ngx-datatable .datatable-header .datatable-header-cell {
+      position: relative;
+      display: inline-block; }
+      .ngx-datatable .datatable-header .datatable-header-cell .datatable-header-cell-wrapper {
+        cursor: pointer; }
+      .ngx-datatable .datatable-header .datatable-header-cell.longpress .datatable-header-cell-wrapper {
+        cursor: move; }
+      .ngx-datatable .datatable-header .datatable-header-cell .sort-btn {
+        line-height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer; }
+      .ngx-datatable .datatable-header .datatable-header-cell .resize-handle {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        padding: 0 4px;
+        visibility: hidden;
+        cursor: ew-resize; }
+      .ngx-datatable .datatable-header .datatable-header-cell.resizeable:hover .resize-handle {
+        visibility: visible; }
+  .ngx-datatable .datatable-body {
+    position: relative;
+    z-index: 10;
+    display: block; }
+    .ngx-datatable .datatable-body .datatable-scroll {
+      display: inline-block; }
+    .ngx-datatable .datatable-body .datatable-row-detail {
+      overflow-y: hidden; }
+    .ngx-datatable .datatable-body .datatable-row-wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+    .ngx-datatable .datatable-body .datatable-body-row {
+      outline: none; }
+      .ngx-datatable .datatable-body .datatable-body-row > div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+  .ngx-datatable .datatable-footer {
+    display: block;
+    width: 100%; }
+    .ngx-datatable .datatable-footer .datatable-footer-inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 100%; }
+    .ngx-datatable .datatable-footer .selected-count .page-count {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 40%;
+              flex: 1 1 40%; }
+    .ngx-datatable .datatable-footer .selected-count .datatable-pager {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 60%;
+              flex: 1 1 60%; }
+    .ngx-datatable .datatable-footer .page-count {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 20%;
+              flex: 1 1 20%; }
+    .ngx-datatable .datatable-footer .datatable-pager {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 80%;
+              flex: 1 1 80%;
+      text-align: right; }
+      .ngx-datatable .datatable-footer .datatable-pager .pager,
+      .ngx-datatable .datatable-footer .datatable-pager .pager li {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        list-style: none; }
+      .ngx-datatable .datatable-footer .datatable-pager .pager li, .ngx-datatable .datatable-footer .datatable-pager .pager li a {
+        outline: none; }
+      .ngx-datatable .datatable-footer .datatable-pager .pager li a {
+        cursor: pointer;
+        display: inline-block; }
+      .ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a {
+        cursor: not-allowed; }
+</style><style>table[_ngcontent-c16]{border-collapse:collapse}td[_ngcontent-c16], th[_ngcontent-c16]{border:1px solid #000;padding:3px}</style></head><body class="          pace-running pace-done"><div class="pace  pace-inactive"><div class="pace-progress" style="transform: translate3d(33.5271%, 0px, 0px);" data-progress-text="33%" data-progress="33">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-overlay"></div><div class="pace-activity"></div></div><app-root ng-version="4.4.4"><router-outlet></router-outlet><app-layout class=""><div class="app" dir="ltr">
+  <mat-toolbar class="main-header mat-toolbar mat-primary" color="primary" role="toolbar"><div class="mat-toolbar-layout"><mat-toolbar-row class="mat-toolbar-row" style="display: flex; box-sizing: border-box; flex-direction: row;">
+    <button class="mat-icon-button" mat-icon-button=""><span class="mat-button-wrapper">
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">menu</mat-icon>
+    </span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button> 
+    <div class="search-bar" fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;">Open Access Accounting</div>
+    <div class="search-bar" fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;"> </div>
+	
+	<button aria-haspopup="true" class="ml-xs mat-icon-button" mat-icon-button=""><span class="mat-button-wrapper">
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">person</mat-icon>
+    </span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+    <mat-menu x-position="before" class="ng-tns-c9-2"><!----></mat-menu>
+    
+    <button apptogglefullscreen="" class="mat-icon-button" mat-icon-button=""><span class="mat-button-wrapper">
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">fullscreen</mat-icon>
+    </span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button> 
+  </mat-toolbar-row></div></mat-toolbar>
+
+  <mat-sidenav-container class="app-inner mat-drawer-container mat-sidenav-container"><div class="mat-drawer-backdrop"></div><div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><mat-sidenav class="sidebar-panel mat-drawer mat-sidenav ng-tns-c10-3 ng-trigger ng-trigger-transform mat-drawer-side" id="sidebar-panel" tabindex="-1" style="transform: translate3d(0px, 0px, 0px); visibility: visible;">
+      <mat-nav-list appaccordion="" class="navigation mat-nav-list" role="list">
+        <!----><mat-list-item appaccordionlink="" class="mat-list-item" role="listitem"><div class="mat-list-item-content"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div>
+		      <!----><a appaccordiontoggle="" class="relative" mat-ripple="" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/oa/my-powerplant">
+                
+                <span>Weg Generator Details</span>
+                <span fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;"></span>
+                <!---->
+          </a>
+		      <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div></mat-list-item><mat-list-item appaccordionlink="" class="mat-list-item" role="listitem"><div class="mat-list-item-content"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div>
+		      <!----><a appaccordiontoggle="" class="relative" mat-ripple="" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/oa/meter-reading">
+                
+                <span>View Meter Readings</span>
+                <span fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;"></span>
+                <!---->
+          </a>
+		      <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div></mat-list-item><mat-list-item appaccordionlink="" class="mat-list-item open" role="listitem"><div class="mat-list-item-content"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div>
+		      <!----><a appaccordiontoggle="" class="relative" mat-ripple="" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/oa/gs">
+                
+                <span style="">Generation Statement</span>
+                <span fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;"></span>
+                <!---->
+          </a>
+		      <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div></mat-list-item><mat-list-item appaccordionlink="" class="mat-list-item" role="listitem"><div class="mat-list-item-content"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div>
+		      <!----><a appaccordiontoggle="" class="relative" mat-ripple="" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/oa/es">
+                
+                <span>Energy Allotment</span>
+                <span fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;"></span>
+                <!---->
+          </a>
+		      <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div></mat-list-item><mat-list-item appaccordionlink="" class="mat-list-item" role="listitem"><div class="mat-list-item-content"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div>
+		      <!----><a appaccordiontoggle="" class="relative" mat-ripple="" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/oa/es-order">
+                
+                <span>Energy Allotment Order</span>
+                <span fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box;"></span>
+                <!---->
+          </a>
+		      <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div></mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav><div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><!----><mat-sidenav-content cdkscrollable="" class="mat-drawer-content mat-sidenav-content" style="margin-left: 234px; margin-right: 0px;">
+    
+    <router-outlet></router-outlet><gs-detail _nghost-c16="" class=""><div _ngcontent-c16="" fxlayout="row" fxlayoutalign="center start" fxlayoutwrap="wrap" id="printSection" style="display: flex; flex-flow: row wrap; box-sizing: border-box; max-height: 100%; place-content: flex-start center; align-items: flex-start;">
+  <div _ngcontent-c16="" fxflex="100" fxflex.gt-sm="100%" style="flex: 1 1 100%; box-sizing: border-box; max-width: 100%;">
+    <mat-card _ngcontent-c16="" class="mat-card-top mat-card">
+
+    <mat-card-title _ngcontent-c16="" class="mat-card-title"><strong _ngcontent-c16=""> View Generation Statement</strong></mat-card-title>
+			<mat-card-content _ngcontent-c16="" class="mat-card-content"> 
+            <mat-card-content _ngcontent-c16="" class="mat-card-content">
+              <div _ngcontent-c16="" fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; place-content: center flex-start; align-items: center;">
+                <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-11 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                  <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Company Name" readonly="" id="mat-input-5" aria-invalid="false">
+                <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-11" for="mat-input-5" aria-owns="mat-input-5">Company Name <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-11 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-12 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                  <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="EDC Name" readonly="" id="mat-input-6" aria-invalid="false">
+                <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-12" for="mat-input-6" aria-owns="mat-input-6">EDC Name <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-12 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-13 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                  <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Generator Service Number" readonly="" id="mat-input-7" aria-invalid="false">
+                <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-13" for="mat-input-7" aria-owns="mat-input-7">Generator Service Number <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-13 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field> 
+                <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-14 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" fxflex.gt-sm="100%" style="flex: 1 1 100%; box-sizing: border-box; max-width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                    <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Statement Generation Date" aria-haspopup="true" id="mat-input-8" aria-invalid="false">
+                    
+                    <mat-datepicker _ngcontent-c16=""></mat-datepicker>
+                <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-14" for="mat-input-8" aria-owns="mat-input-8">Statement Generation Date <!----></label></span></div><!----><div class="mat-input-suffix mat-form-field-suffix ng-tns-c4-14"><mat-datepicker-toggle _ngcontent-c16="" class="mat-datepicker-toggle" matsuffix=""><button class="mat-icon-button" mat-icon-button="" type="button" aria-label="Open calendar"><span class="mat-button-wrapper"><mat-icon class="mat-icon material-icons" role="img" aria-hidden="true"><svg fill="currentColor" focusable="false" height="100%" style="vertical-align: top" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg></mat-icon></span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button></mat-datepicker-toggle></div></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-14 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>            
+              </div>
+
+              <div _ngcontent-c16="" fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; place-content: center flex-start; align-items: center;">
+                <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-15 mat-form-field-type-mat-select mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                  <mat-select _ngcontent-c16="" class="ml-xs mr-xs mat-select ng-tns-c13-16 ng-untouched ng-pristine ng-valid" placeholder="Statement Month" readonly="" role="listbox" style="width: 100%;" id="mat-select-2" tabindex="0" aria-label="Statement Month" aria-required="false" aria-disabled="false" aria-invalid="false" aria-owns="mat-option-65 mat-option-66 mat-option-67 mat-option-68 mat-option-69 mat-option-70 mat-option-71 mat-option-72 mat-option-73 mat-option-74 mat-option-75 mat-option-76" aria-multiselectable="false"><div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin=""><div class="mat-select-value"><!----><!----><span class="mat-select-value-text ng-tns-c13-16"><!----><span class="ng-tns-c13-16">January</span><!----></span></div><div class="mat-select-arrow-wrapper"><div class="mat-select-arrow"></div></div></div><!----></mat-select>
+                  <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-15" for="mat-select-2" aria-owns="mat-select-2">Statement Month <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-15 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field> 
+                  <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-17 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix"> 
+                     <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Statement Year" readonly="" id="mat-input-9" aria-invalid="false">
+                   <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-17" for="mat-input-9" aria-owns="mat-input-9">Statement Year <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-17 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                  <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-18 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" fxflex.gt-sm="100%" style="flex: 1 1 100%; box-sizing: border-box; max-width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Initial Statement Date" aria-haspopup="true" id="mat-input-10" aria-invalid="false">
+                        
+                        <mat-datepicker _ngcontent-c16=""></mat-datepicker>
+                    <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-18" for="mat-input-10" aria-owns="mat-input-10">Initial Statement Date <!----></label></span></div><!----><div class="mat-input-suffix mat-form-field-suffix ng-tns-c4-18"><mat-datepicker-toggle _ngcontent-c16="" class="mat-datepicker-toggle" matsuffix=""><button class="mat-icon-button" mat-icon-button="" type="button" aria-label="Open calendar"><span class="mat-button-wrapper"><mat-icon class="mat-icon material-icons" role="img" aria-hidden="true"><svg fill="currentColor" focusable="false" height="100%" style="vertical-align: top" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg></mat-icon></span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button></mat-datepicker-toggle></div></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-18 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                      <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-19 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" fxflex.gt-sm="100%" style="flex: 1 1 100%; box-sizing: border-box; max-width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Final Statement Date" aria-haspopup="true" id="mat-input-11" aria-invalid="false">
+                        
+                        <mat-datepicker _ngcontent-c16=""></mat-datepicker>
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-19" for="mat-input-11" aria-owns="mat-input-11">Final Statement Date <!----></label></span></div><!----><div class="mat-input-suffix mat-form-field-suffix ng-tns-c4-19"><mat-datepicker-toggle _ngcontent-c16="" class="mat-datepicker-toggle" matsuffix=""><button class="mat-icon-button" mat-icon-button="" type="button" aria-label="Open calendar"><span class="mat-button-wrapper"><mat-icon class="mat-icon material-icons" role="img" aria-hidden="true"><svg fill="currentColor" focusable="false" height="100%" style="vertical-align: top" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg></mat-icon></span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button></mat-datepicker-toggle></div></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-19 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                      
+              
+              </div>
+
+              <div _ngcontent-c16="" fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; place-content: center flex-start; align-items: center;">
+                  <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-20 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                      <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Injecting Voltage" readonly="" id="mat-input-12" aria-invalid="false">
+                    <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-20" for="mat-input-12" aria-owns="mat-input-12">Injecting Voltage <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-20 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                   
+                    <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-21 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                      <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Multiplication Factor" readonly="" id="mat-input-13" aria-invalid="false">
+                    <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-21" for="mat-input-13" aria-owns="mat-input-13">Multiplication Factor <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-21 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+
+                    <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-22 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Total Import Generation" readonly="" id="mat-input-14" aria-invalid="false">
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-22" for="mat-input-14" aria-owns="mat-input-14">Total Import Generation <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-22 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                     
+                      <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-23 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Total Export Generation" readonly="" id="mat-input-15" aria-invalid="false">
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-23" for="mat-input-15" aria-owns="mat-input-15">Total Export Generation <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-23 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                  
+              </div>
+              <div _ngcontent-c16="" fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; place-content: center flex-start; align-items: center;">
+                      <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-24 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Machine Capacity(kW)" readonly="" id="mat-input-16" aria-invalid="false">
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-24" for="mat-input-16" aria-owns="mat-input-16">Machine Capacity(kW) <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-24 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                                        
+                      <!----><mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-29 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Total Charged Amount" readonly="" id="mat-input-21" aria-invalid="false">
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-29" for="mat-input-21" aria-owns="mat-input-21">Total Charged Amount <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-29 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+
+                      <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-25 mat-form-field-type-mat-input mat-form-field-can-float mat-primary mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control" matinput="" placeholder="Date of Commissioning" readonly="" id="mat-input-17" aria-invalid="false">
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-25" for="mat-input-17" aria-owns="mat-input-17">Date of Commissioning <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-25 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                      <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-26 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Rec" readonly="" id="mat-input-18" aria-invalid="false">
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-26" for="mat-input-18" aria-owns="mat-input-18">Rec <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-26 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+
+                      
+                      <!----><mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-30 mat-form-field-type-mat-select mat-form-field-can-float mat-primary ng-untouched ng-pristine mat-form-field-should-float" fxflex.gt-sm="100%" style="flex: 1 1 100%; box-sizing: border-box; max-width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                        <mat-select _ngcontent-c16="" class="ml-xs mr-xs mat-select ng-tns-c13-31 mat-select-disabled ng-untouched ng-pristine" placeholder="Category" role="listbox" style="width: 100%;" id="mat-select-3" tabindex="-1" aria-label="Category" aria-required="false" aria-disabled="true" aria-invalid="false" aria-owns="mat-option-77 mat-option-78" aria-multiselectable="false"><div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin=""><div class="mat-select-value"><!----><!----><span class="mat-select-value-text ng-tns-c13-31"><!----><span class="ng-tns-c13-31">WHEELING</span><!----></span></div><div class="mat-select-arrow-wrapper"><div class="mat-select-arrow"></div></div></div><!----></mat-select>
+                      <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-30" for="mat-select-3" aria-owns="mat-select-3">Category <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline mat-disabled"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-30 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                      <!---->
+
+          
+                          
+              </div>
+            </mat-card-content>
+            
+          
+          
+          
+          <mat-card-title _ngcontent-c16="" class="mat-card-title"><strong _ngcontent-c16=""> Generation Statement Import Slot </strong></mat-card-title> 
+          <mat-card-content _ngcontent-c16="" class="mat-card-content">
+            <ngx-datatable _ngcontent-c16="" class="material ngx-datatable fixed-header fixed-row">
+    <div visibilityobserver="" class="visible">
+      <!----><datatable-header class="datatable-header" style="height: 50px; width: 100%;">
+    <div class="datatable-header-inner" orderable="" style="width: 1046px;">
+      <!----><div style="width: 0px;" class="datatable-row-left">
+        <!---->
+      </div><div style="width: 1046px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-center">
+        <!----><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable"></span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C1 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C1 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C2 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C2 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C3 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C3 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C4 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C4 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C5 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C5 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell>
+      </div><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right">
+        <!---->
+      </div>
+    </div>
+  </datatable-header>
+      <datatable-body class="datatable-body" style="width: 100%; height: auto;">
+    <datatable-selection>
+    
+      <!---->
+      <!----><datatable-scroller class="datatable-scroll" style="width: 1046px;">
+    
+        <!----><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Final Reading</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">2.355</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">2.115</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">0.735</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">7.755</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">5.895</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Initial Reading</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">2.26</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">1.91</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">0.65</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">7.21</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">5.36</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Difference</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">.095</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">.205</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">.085</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">.545</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">.535</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Units</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">171</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">369</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">153</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">981</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">963</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper>
+      
+  </datatable-scroller>
+      <!---->
+    
+  </datatable-selection>
+  </datatable-body>
+      <!----><datatable-footer class="datatable-footer">
+    <div class="datatable-footer-inner" style="height: 50px;">
+      <!---->
+      <!----><div class="page-count">
+        <!---->
+        4 total
+      </div>
+      <!----><datatable-pager class="datatable-pager" hidden="">
+    <ul class="pager">
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-prev"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-left"></i>
+        </a>
+      </li>
+      <!----><li class="pages active">
+        <a href="javascript:void(0)">
+          1
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-right"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-skip"></i>
+        </a>
+      </li>
+    </ul>
+  </datatable-pager>
+    </div>
+  </datatable-footer>
+    </div>
+  </ngx-datatable>
+          </mat-card-content> 
+          <br _ngcontent-c16="">
+
+               <mat-card-title _ngcontent-c16="" class="mat-card-title"><strong _ngcontent-c16=""> Generation Statement Export Slot </strong></mat-card-title> 
+              <mat-card-content _ngcontent-c16="" class="mat-card-content">
+                <ngx-datatable _ngcontent-c16="" class="material ngx-datatable fixed-header fixed-row">
+    <div visibilityobserver="" class="visible">
+      <!----><datatable-header class="datatable-header" style="height: 50px; width: 100%;">
+    <div class="datatable-header-inner" orderable="" style="width: 1046px;">
+      <!----><div style="width: 0px;" class="datatable-row-left">
+        <!---->
+      </div><div style="width: 1046px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-center">
+        <!----><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable"></span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C1 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C1 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C2 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C2 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C3 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C3 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C4 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C4 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 174.333px;" title="C5 ">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">C5 </span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell>
+      </div><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right">
+        <!---->
+      </div>
+    </div>
+  </datatable-header>
+      <datatable-body class="datatable-body" style="width: 100%; height: auto;">
+    <datatable-selection>
+    
+      <!---->
+      <!----><datatable-scroller class="datatable-scroll" style="width: 1046px;">
+    
+        <!----><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Final Reading</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">245.78</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">237.75</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">73.865</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">1028.745</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">510.555</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Initial Reading</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">209.68</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">229.33</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">70.12</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">929.83</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">464.69</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Difference</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">36.1</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">8.42</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">3.745</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">98.915</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">45.865</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Units</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">64980</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">15156</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">6741</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">178047</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 174.333px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">82557</strong>
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper>
+      
+  </datatable-scroller>
+      <!---->
+    
+  </datatable-selection>
+  </datatable-body>
+      <!----><datatable-footer class="datatable-footer">
+    <div class="datatable-footer-inner" style="height: 50px;">
+      <!---->
+      <!----><div class="page-count">
+        <!---->
+        4 total
+      </div>
+      <!----><datatable-pager class="datatable-pager" hidden="">
+    <ul class="pager">
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-prev"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-left"></i>
+        </a>
+      </li>
+      <!----><li class="pages active">
+        <a href="javascript:void(0)">
+          1
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-right"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-skip"></i>
+        </a>
+      </li>
+    </ul>
+  </datatable-pager>
+    </div>
+  </datatable-footer>
+    </div>
+  </ngx-datatable>
+          </mat-card-content>    
+
+        <!----><div _ngcontent-c16="">  
+          <mat-card-title _ngcontent-c16="" class="mat-card-title"><strong _ngcontent-c16=""> Banking Details </strong></mat-card-title> 
+           <mat-card-content _ngcontent-c16="" class="mat-card-content">
+             <div _ngcontent-c16="" fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; place-content: center flex-start; align-items: center;">
+
+           
+             <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-32 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+               <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="C1 " readonly="" id="mat-input-22" aria-invalid="false">
+             <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-32" for="mat-input-22" aria-owns="mat-input-22">C1  <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-32 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+
+               <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-33 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                 <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="C2 " readonly="" id="mat-input-23" aria-invalid="false">
+               <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-33" for="mat-input-23" aria-owns="mat-input-23">C2  <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-33 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+
+               <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-34 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                 <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="C3 " readonly="" id="mat-input-24" aria-invalid="false">
+               <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-34" for="mat-input-24" aria-owns="mat-input-24">C3  <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-34 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+ 
+                 <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-35 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                   <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="C4 " readonly="" id="mat-input-25" aria-invalid="false">
+                 <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-35" for="mat-input-25" aria-owns="mat-input-25">C4  <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-35 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+
+                 <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-36 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                  <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="C5 " readonly="" id="mat-input-26" aria-invalid="false">
+                <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-36" for="mat-input-26" aria-owns="mat-input-26">C5  <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-36 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+                     </div> 
+             </mat-card-content>    
+            </div> 
+
+
+          
+          
+          <mat-card-title _ngcontent-c16="" class="mat-card-title"><strong _ngcontent-c16=""> Generation Summaries </strong></mat-card-title> 
+          <mat-card-content _ngcontent-c16="" class="mat-card-content">
+            <ngx-datatable _ngcontent-c16="" class="material ngx-datatable fixed-header fixed-row">
+    <div visibilityobserver="" class="visible">
+      <!----><datatable-header class="datatable-header" style="height: 50px; width: 100%;">
+    <div class="datatable-header-inner" orderable="" style="width: 1046px;">
+      <!----><div style="width: 0px;" class="datatable-row-left">
+        <!---->
+      </div><div style="width: 1046px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-center">
+        <!----><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 209.2px;" title="">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable"></span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 209.2px;" title="Rkvah">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">Rkvah</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 209.2px;" title="kVah">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">kVah</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 209.2px;" title="Total Import">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">Total Import</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 209.2px;" title="Total Export">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">Total Export</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell>
+      </div><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right">
+        <!---->
+      </div>
+    </div>
+  </datatable-header>
+      <datatable-body class="datatable-body" style="width: 100%; height: auto;">
+    <datatable-selection>
+    
+      <!---->
+      <!----><datatable-scroller class="datatable-scroll" style="width: 1046px;">
+    
+        <!----><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Initial</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">163.67</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  55.74
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  NA
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  NA
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Final</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">176.04</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  61.445
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  NA
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  NA
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Difference</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">12.37</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  195.805
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  NaN
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  190
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">Units</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">22266</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  352449
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  2637
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 209.2px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  347481
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper>
+      
+  </datatable-scroller>
+      <!---->
+    
+  </datatable-selection>
+  </datatable-body>
+      <!----><datatable-footer class="datatable-footer">
+    <div class="datatable-footer-inner" style="height: 50px;">
+      <!---->
+      <!----><div class="page-count">
+        <!---->
+        4 total
+      </div>
+      <!----><datatable-pager class="datatable-pager" hidden="">
+    <ul class="pager">
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-prev"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-left"></i>
+        </a>
+      </li>
+      <!----><li class="pages active">
+        <a href="javascript:void(0)">
+          1
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-right"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-skip"></i>
+        </a>
+      </li>
+    </ul>
+  </datatable-pager>
+    </div>
+  </datatable-footer>
+    </div>
+  </ngx-datatable>
+          </mat-card-content>  
+
+          <div _ngcontent-c16="" fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; place-content: center flex-start; align-items: center;"> 
+               <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-27 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid mat-form-field-should-float" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                 <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Net Generation(in Units)" readonly="" id="mat-input-19" aria-invalid="false">
+               <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-27" for="mat-input-19" aria-owns="mat-input-19">Net Generation(in Units) <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-27 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+ 
+                 <mat-form-field _ngcontent-c16="" class="ml-xs mr-xs mat-input-container mat-form-field ng-tns-c4-28 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid" style="width: 100%;"><div class="mat-input-wrapper mat-form-field-wrapper"><div class="mat-input-flex mat-form-field-flex"><!----><div class="mat-input-infix mat-form-field-infix">
+                   <input _ngcontent-c16="" class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid" matinput="" placeholder="Power Factor" readonly="" id="mat-input-20" aria-invalid="false">
+                 <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper"><!----><label class="mat-input-placeholder mat-form-field-placeholder ng-tns-c4-28 mat-empty mat-form-field-empty" for="mat-input-20" aria-owns="mat-input-20">Power Factor <!----></label></span></div><!----></div><div class="mat-input-underline mat-form-field-underline"><span class="mat-input-ripple mat-form-field-ripple"></span></div><div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper"><!----><!----><div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-28 ng-trigger ng-trigger-transitionMessages" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+            </div>
+
+            <!---->
+            
+
+          <mat-card-title _ngcontent-c16="" class="mat-card-title"><strong _ngcontent-c16=""> Generation Statement Charges </strong></mat-card-title> 
+          <mat-card-content _ngcontent-c16="" class="mat-card-content">
+            <ngx-datatable _ngcontent-c16="" class="material ngx-datatable fixed-header fixed-row">
+    <div visibilityobserver="" class="visible">
+      <!----><datatable-header class="datatable-header" style="height: 50px; width: 100%;">
+    <div class="datatable-header-inner" orderable="" style="width: 1046px;">
+      <!----><div style="width: 0px;" class="datatable-row-left">
+        <!---->
+      </div><div style="width: 1046px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-center">
+        <!----><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 348.667px;" title="Charge Code">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">Charge Code</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 348.667px;" title="Charge Description">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">Charge Description</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell><datatable-header-cell class="datatable-header-cell sortable resizeable" draggable="" long-press="" resizeable="" style="width: 348.667px;" title="Total Charges">
+    <div>
+      <!---->
+      <!----><span class="datatable-header-cell-wrapper">
+        <span class="datatable-header-cell-label draggable">Total Charges</span>
+      </span>
+      <!---->
+      <span class="sort-btn">
+      </span>
+    </div>
+  <span class="resize-handle"></span></datatable-header-cell>
+      </div><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right">
+        <!---->
+      </div>
+    </div>
+  </datatable-header>
+      <datatable-body class="datatable-body" style="width: 100%; height: auto;">
+    <datatable-selection>
+    
+      <!---->
+      <!----><datatable-scroller class="datatable-scroll" style="width: 1046px;">
+    
+        <!----><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C002</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   O&amp;M Charges
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  49384
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C003</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   Transmission Charges
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  115798
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C004</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   System Operation Charges
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  1287
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C005</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   RKvah Penalty
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  5567
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C006</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   Negative Energy Charges
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-odd" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C007</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   Scheduling Charges
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  4880
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper><datatable-row-wrapper class="datatable-row-wrapper" style="height: 40px;">
+    
+          <datatable-body-row tabindex="-1" class="datatable-body-row datatable-row-even" style="height: 40px; width: 1046px;">
+    <!----><div style="width: 0px; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-left datatable-row-group">
+      <!---->
+    </div><div style="width: 1046px;" class="datatable-row-center datatable-row-group">
+      <!----><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  <strong _ngcontent-c16="">C001</strong>
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                   Meter Reading Charges
+                <!---->
+    </div>
+  </datatable-body-cell><datatable-body-cell class="datatable-body-cell sort-active" tabindex="-1" style="width: 348.667px; height: 40px;">
+    <div class="datatable-body-cell-label">
+      <!---->
+      <!---->
+      <!----><!---->
+                  300
+                <!---->
+    </div>
+  </datatable-body-cell>
+    </div><div style="width: 0px; transform: translate3d(-17px, 0px, 0px); backface-visibility: hidden;" class="datatable-row-right datatable-row-group">
+      <!---->
+    </div>
+  </datatable-body-row>
+        
+    <!---->
+  </datatable-row-wrapper>
+      
+  </datatable-scroller>
+      <!---->
+    
+  </datatable-selection>
+  </datatable-body>
+      <!----><datatable-footer class="datatable-footer">
+    <div class="datatable-footer-inner" style="height: 50px;">
+      <!---->
+      <!----><div class="page-count">
+        <!---->
+        7 total
+      </div>
+      <!----><datatable-pager class="datatable-pager" hidden="">
+    <ul class="pager">
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-prev"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-left"></i>
+        </a>
+      </li>
+      <!----><li class="pages active">
+        <a href="javascript:void(0)">
+          1
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-right"></i>
+        </a>
+      </li>
+      <li class="disabled">
+        <a href="javascript:void(0)">
+          <i class="datatable-icon-skip"></i>
+        </a>
+      </li>
+    </ul>
+  </datatable-pager>
+    </div>
+  </datatable-footer>
+    </div>
+  </ngx-datatable>
+             
+          
+          </mat-card-content>  
+      </mat-card-content>
+      <hr _ngcontent-c16="">
+      <mat-card-actions _ngcontent-c16="" class="mat-card-actions">
+
+        <button _ngcontent-c16="" class="primary mat-raised-button" mat-raised-button=""><span class="mat-button-wrapper">Back</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+		<button _ngcontent-c16="" class="primary mat-raised-button mat-primary" color="primary" mat-raised-button=""><span class="mat-button-wrapper">Print</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+      </mat-card-actions>
+    </mat-card>
+  </div> 
+</div></gs-detail>
+  </mat-sidenav-content></mat-sidenav-container>
+
+
+</div></app-layout></app-root><script type="text/javascript" src="/oa/inline.de07d622f63bd147758f.bundle.js"></script><script type="text/javascript" src="/oa/polyfills.a21819d9bec33a52d639.bundle.js"></script><script type="text/javascript" src="/oa/scripts.16e0ebc52afbbc586f2c.bundle.js"></script><script type="text/javascript" src="/oa/vendor.efd5e292213288728fed.bundle.js"></script><script type="text/javascript" src="/oa/main.5988073f7cad5a2da6fa.bundle.js"></script><div class="cdk-overlay-container"></div></body></html>

@@ -14,6 +14,15 @@ import time
 import database_frame as dbframe
 import extractor
 import Create_table_widget as Table
+import file_creator as excel
+
+
+def get_uname(file):
+    if file:
+        with open(file, 'r') as file:
+            return [uname.strip() for uname in file]
+    else:
+        pass
 
 
 class Application(Frame):
@@ -68,7 +77,7 @@ class Application(Frame):
         self.menubar = Menu(self.master)
         self.master.config(menu=self.menubar)
         self.menubar.add_command(label='Single Download', command=self.show_sd_dialog)
-        self.menubar.add_command(label='Batch Download', command=lambda: print('Batch Download'))
+        self.menubar.add_command(label='Batch Download', command=self.show_batch_dialog)
         self.menubar.add_command(label='About', command=self.show_about_dialog)
 
     def show_about_dialog(self):
@@ -147,9 +156,7 @@ class Application(Frame):
         password = self.consumer_pass.getvalue()
         mnth = self.consumer_month.get()
         yr = self.consumer_year.get()
-        results = extractor.scrape(uname=consumerNo, password, mnth, yr)
-        # results = [['079204720584'], ['171', '333', '153', '648', '828', '46962', '15246', '5130', '163125',
-                                      # '57006', '46791.0', '14913.0', '4977.0', '162477.0', '56178.0']]
+        results = extractor.scrape(password, mnth, yr, uname=consumerNo)
         queue.put(results)
 
     def clear_displayframe(self):
@@ -160,6 +167,89 @@ class Application(Frame):
 
     def close_errordialog(self, button):
         self.errordialog.deactivate()
+
+    def show_batch_dialog(self):
+
+        self.bd_month = StringVar()
+        self.bd_year = IntVar()
+        self.bdownload = Pmw.Dialog(self.master, title='Batch Service Download', buttons=('Download', 'Cancel'), defaultbutton='Search', command=self.execute_bdownload)
+        Message(self.bdownload.interior(), text='*This Option will work only, \n if password is same for all service', justify=LEFT, width=350).pack(side=TOP, fill=X, expand=1)
+        Label(self.bdownload.interior(), text='Upload .txt file here').pack()
+        Button(self.bdownload.interior(), text='upload', command=self.upload_file).pack()
+        self.bd_month.set('January')
+        OptionMenu(self.bdownload.interior(), self.bd_month, *months).pack()
+        self.bd_year.set(2019)
+        OptionMenu(self.bdownload.interior(), self.bd_year, *years).pack()
+        self.bdownload.activate(geometry='centerscreenfirst')
+
+    def execute_bdownload(self, button):
+        if button == 'Download':
+            self.pword_dialog = Pmw.PromptDialog(self.master, title='Password', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK', 'Cancel'))
+            self.pword_dialog.activate(geometry='centerscreenfirst')
+            self.bdownload.deactivate()
+            self.progressbar.start()
+            # place thread here
+            threading.Thread(target=self.get_batch_results, args=(self.queue,)).start()
+            self.master.after(100, self.show_batch_results)
+        else:
+            self.bdownload.deactivate()
+
+    def show_batch_results(self):
+        self.menubar.entryconfig('Batch Download', state='disabled')
+        try:
+            results = self.queue.get(0)
+            self.progressbar.stop()
+            self.messbox = Pmw.MessageDialog(self.master, title='Batch download status', message_text=' Download completed', buttons=('Display', 'OK'), command=self.db_spread_display)
+            self.messbox.activate(geometry='centerscreenfirst')
+            timestr = time.asctime()
+            logging.info('{} Batch download is completed'.format(timestr))
+            # b = Button(self.display_frame, text='Download', command=self.file_to_save)
+            # b.pack()
+
+        except queue.Empty:
+            self.master.after(100, self.show_batch_results)
+
+    def upload_file(self):
+
+        file = filedialog.askopenfilename()
+        service_list = get_uname(file)
+        self.service_list = service_list
+
+    def get_batch_results(self, queue):
+        results = extractor.scrape(self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), servicelist=self.service_list)
+        queue.put(results)
+
+    def db_spread_display(self, button):
+        self.menubar.entryconfig('Batch Download', state='active')
+        tbname = self.bd_month.get() + str(self.bd_year.get())
+
+        if button == 'Display':
+            self.messbox.deactivate()
+            results = excel.downloadvalues(tbname)
+            hf = Frame(self.display_frame)
+            hf.pack(side=TOP, fill=BOTH, expand=1)
+            for name in ['ID', 'Consumer', 'Slot', 'Import units', 'Export Units', 'Difference']:
+                Label(hf, text=name, relief=SOLID, bd=1, width=20).pack(side=LEFT, fill=X, expand=1)
+            if results:
+                for row in range(len(results)):
+                    rf = Frame(self.display_frame)
+                    rf.pack(side=TOP, fill=BOTH, expand=1)
+                    for val in results[row]:
+                        current = StringVar()
+                        current.set(val)
+                        Entry(rf, textvariable=current, relief=SOLID, bd=1, width=20).pack(side=LEFT, fill=X, expand=1)
+                timestr = time.asctime()
+                logging.info('{} : Data fetched for {}'.format(timestr, tbname))
+            else:
+                self.status = Pmw.MessageDialog(self.master, title='No record found', defaultbutton=0, buttons=('OK',), message_text='Not ', command=lambda: print('close message dialog'))
+                timestr = time.asctime()
+                logging.info('{} : Data not found for {}'.format(timestr, self.tablename.get()))
+
+            self.master.update()
+            self.canvas.configure(scrollregion=self.canvas.bbox('all'))
+
+        else:
+            self.messbox.deactivate()
 
 
 

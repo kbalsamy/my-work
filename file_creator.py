@@ -83,6 +83,7 @@ def xldownloader(filename, tablename):
     worksheet = workbook.add_worksheet('sheet1')
     writer(con, tablename, workbook, worksheet)
     workbook.close()
+    return 'Finished'
 
 
 def downloadvalues(tablename):
