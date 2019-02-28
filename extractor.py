@@ -12,17 +12,35 @@ import logging
 import time
 
 
-def scrape(uname, pword, month, year):
+def db_connect():
+    con = sqlite3.connect('ReadingsV1onAPP.db')
+    return con
+
+
+def scrape(servicelist=None, uname=None, pword, month, year):
     " webdriver created here"
     options = Options()
-    options.headless = False
+    options.headless = True
     binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
     driver = webdriver.Firefox(options=options, firefox_binary=binary)
-    results = get_values(driver, url, uname, pword, month, year)
-    return results
+    if uname:
+        results = get_values(driver, url, uname, pword, month, year)
+        return results
+    else:
+        batch = [servicelist[i:i + 15] for i in range(0, len(servicelist), 15)]
+    for row in range(len(batch)):
+        tab = 0
+        for ID in batch[row]:
+            driver.execute_script("window.open('about:blank', 'tab{}');".format(tab))
+            driver.switch_to.window("tab{}".format(tab))
+            get_values(driver, url, ID, pword, month, year, activatedb=True)
+            tab += 1
+    driver.quit()
+    timestr = time.asctime()
+    logging.info('{} Batch download is completed'.format(timestr))
 
 
-def get_values(driver, url, uname, pword, month, year):
+def get_values(driver, url, uname, pword, month, year, activatedb=None):
     "Scaping logic "
     try:
         browser = driver.get(url)
@@ -57,29 +75,45 @@ def get_values(driver, url, uname, pword, month, year):
                 logout.click()
                 driver.quit()
 
-                scrape_results = extract_values(uname, html, month, year, status)
-                return scrape_results
+                if activatedb:
+                    scrape_results = extract_values(uname, html, month, year, status, dbconnect=db_connect())
+
+                else:
+                    scrape_results = extract_values(uname, html, month, year, status)
+                    return scrape_results
 
             except selenium.common.exceptions.TimeoutException as e:
                 driver.quit()
                 status = "Readings are not found for {}.".format(uname)
-                scrape_results = extract_values(uname, None, month, year, status)
-                return scrape_results
+                if activatedb:
+                    scrape_results = extract_values(uname, html, month, year, status, dbconnect=db_connect())
+                else:
+                    scrape_results = extract_values(uname, None, month, year, status)
+                    return scrape_results
 
         except selenium.common.exceptions.TimeoutException as e:
             driver.quit()
-            status = "consumer {} not found.".format(uname)
-            scrape_results = extract_values(uname, None, month, year, status)
-            return scrape_results
+            status = "Time out, please try again or contact admin."
+
+            if activatedb:
+
+                scrape_results = extract_values(uname, html, month, year, status, dbconnect=db_connect())
+            else:
+                scrape_results = extract_values(uname, None, month, year, status)
+                return scrape_results
 
     except (selenium.common.exceptions.WebDriverException, selenium.common.exceptions.TimeoutException) as e:
         driver.quit()
         status = "Check your internet connection"
-        scrape_results = extract_values(uname, None, month, year, status)
-        return scrape_results
+        if activatedb:
+
+            scrape_results = extract_values(uname, html, month, year, status, dbconnect=db_connect())
+        else:
+            scrape_results = extract_values(uname, None, month, year, status)
+            return scrape_results
 
 
-def extract_values(uname, html, month, year, status):
+def extract_values(uname, html, month, year, status, dbconnect=None):
     "processing the scrapped values"
     final = []
     tablename = month + str(year)
@@ -106,7 +140,18 @@ def extract_values(uname, html, month, year, status):
         final.append(imp + exp + dif)
         timestr = time.asctime()
         logging.info('{} : Data fetched for {}'.format(timestr, uname))
-        return final
+        if dbconnect:
+            cursor = con.cursor()
+        create_table = """CREATE TABLE IF NOT EXISTS {} (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, consumer TEXT, Connection TEXT, ImportUnits REAL, ExportUnits REAL, DifUnits REAL)""".format(tablename)
+        cursor.execute(create_table)
+        for item in results:
+            differnce = float(item[8]) - float(item[4])
+            insert_values = """INSERT INTO {} (consumer, Connection, ImportUnits, ExportUnits, DifUnits) VALUES(?, ?, ?, ?, ?)""".format(tablename)
+            cursor.execute(insert_values, (CID, item[0], float(item[4]), float(item[8]), differnce))
+            logging.info('{}:values updated into database for {}'.format(timestr, CID))
+            con.commit()
+        else:
+            return final
 
     else:
         timestr = time.asctime()
@@ -114,4 +159,5 @@ def extract_values(uname, html, month, year, status):
         with open('failed summary.txt', 'a+') as file:
             file.write("{} failed to get values\n".format(uname))
             file.close()
-        return status
+        if not dbconnect:
+            return status

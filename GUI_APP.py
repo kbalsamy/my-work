@@ -147,7 +147,7 @@ class Application(Frame):
         password = self.consumer_pass.getvalue()
         mnth = self.consumer_month.get()
         yr = self.consumer_year.get()
-        results = extractor.scrape(consumerNo, password, mnth, yr)
+        results = extractor.scrape(uname=consumerNo, password, mnth, yr)
         # results = [['079204720584'], ['171', '333', '153', '648', '828', '46962', '15246', '5130', '163125',
                                       # '57006', '46791.0', '14913.0', '4977.0', '162477.0', '56178.0']]
         queue.put(results)
