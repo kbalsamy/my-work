@@ -23,7 +23,7 @@ def scrape(pword, month, year, uname=None, servicelist=None):
     return results
 
 
-def get_values(driver, url, uname, pword, month, year, activatedb=None):
+def get_values(driver, url, uname, pword, month, year, activatedb=None, search=None):
 
     browser = driver.get(url)
     login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-0")))
@@ -31,9 +31,8 @@ def get_values(driver, url, uname, pword, month, year, activatedb=None):
     password = driver.find_element_by_id("mat-input-1")
     password.send_keys(pword)
     submit = driver.find_element_by_css_selector(".mat-raised-button").click()
-    reading = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "mat-list-item:nth-child(3) span:nth-child(1)")))
+    reading = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".mat-list-item:nth-child(5) span:nth-child(1)")))
     reading.click()
-    # driver.find_element_by_css_selector(".mat-drawer-backdrop").click()
     menu_selector = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#mat-select-1 .mat-select-arrow"))).click()
     element = driver.find_element_by_css_selector(".ng-trigger-transformPanel")
     actions = ActionChains(driver)
@@ -45,23 +44,26 @@ def get_values(driver, url, uname, pword, month, year, activatedb=None):
     enter_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".primary > .mat-button-wrapper"))).click()
     fetch_results = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".mr-1 > .mat-button-wrapper"))).click()
 
-    with open('page.txt', 'w') as file:
-        file.write(driver.page_source)
-        file.close()
+    results = driver.page_source
+    b1 = driver.find_element_by_xpath("//*[@id='mat-input-22']").text
+    print(b1)
 
     logout_menu = driver.find_element_by_css_selector(".ml-xs .mat-icon").click()
     logout = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR,
                                                                              ".mat-menu-item:nth-child(5) > .mat-menu-ripple")))
     logout.click()
     driver.quit()
+    return results
 
 
 # scrape('pppp', 'January', 2019, uname='079204720585')
 
-def extract_values(html):
-    soup = BS('page', "html.parser")
-    imp = soup.find("datatable-header-cell sortable resizeable")
-    print(imp)
+def extract_values(file):
+    file = open(file, 'r')
+    soup = BS(file, "html.parser")
+    table = soup.find_all(class_="datatable-body-cell-label")
+    print(table)
 
 
-extract_values('page.html')
+html = scrape('pppp', 'January', 2019, uname='079204720584')
+result = extract_values('page.html')

@@ -6,6 +6,7 @@ global months
 global years
 global headers_list
 global slot_list
+global sections
 
 url = os.environ.get("login_url")
 pword = os.environ.get("p_word")
@@ -20,6 +21,11 @@ month_dict = {'January': '#mat-option-0 > .mat-option-text', 'February': '#mat-o
               'July': '#mat-option-6 > .mat-option-text', 'August': '#mat-option-7 > .mat-option-text',
               'September': '#mat-option-8 > .mat-option-text', 'October': '#mat-option-9 > .mat-option-text',
               'November': '#mat-option-10 > .mat-option-text', 'December': '#mat-option-11 > .mat-option-text'}
+
+
+sections = {'reading': ".mat-list-item:nth-child(2) span:nth-child(1)",
+            'statement': "mat-list-item:nth-child(3) span:nth-child(1)",
+            'banking': "css=.mat-list-item:nth-child(5) span:nth-child(1)"}
 
 
 headers_list = ['Consumer Number', 'Import units', 'Export Units', 'Difference']
