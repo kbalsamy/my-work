@@ -7,6 +7,8 @@ global years
 global headers_list
 global slot_list
 global sections
+global banking
+global sample_results
 
 url = os.environ.get("login_url")
 pword = os.environ.get("p_word")
@@ -24,9 +26,11 @@ month_dict = {'January': '#mat-option-0 > .mat-option-text', 'February': '#mat-o
 
 
 sections = {'reading': ".mat-list-item:nth-child(2) span:nth-child(1)",
-            'statement': "mat-list-item:nth-child(3) span:nth-child(1)",
-            'banking': "css=.mat-list-item:nth-child(5) span:nth-child(1)"}
+            'statement': "mat-list-item:nth-child(3) span:nth-child(1)"}
 
+banking = ['mat-input-22', 'mat-input-23', 'mat-input-24', 'mat-input-25', 'mat-input-26']
 
 headers_list = ['Consumer Number', 'Import units', 'Export Units', 'Difference']
 slot_list = ['C1', "C2", "C3", "C4", "C5"]
+
+sample_results = ['079204720584', ['171', '333', '153', '648', '828', '46962', '15246', '5130', '163125', '57006', 46791.0, 14913.0, 4977.0, 162477.0, 56178.0, '6307', '9747', '6105', '66715', '13983'], ['C002', 'O&M Charges', '49384', 'C003', 'Transmission Charges', '115798', 'C004', 'System Operation Charges', '1287', 'C005', 'RKvah Penalty', '29651', 'C006', 'Negative Energy Charges', '', 'C007', 'Scheduling Charges', '4880', 'C001', 'Meter Reading Charges', '300']]

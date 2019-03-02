@@ -1,0 +1,60 @@
+[INFO  - 2019-03-01T07:17:44.814Z] GhostDriver - Main - running on port 40852
+[INFO  - 2019-03-01T07:17:49.217Z] Session [1e8a8630-3bf2-11e9-802b-17c1cee9e5e3] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2019-03-01T07:17:49.217Z] Session [1e8a8630-3bf2-11e9-802b-17c1cee9e5e3] - page.customHeaders:  - {}
+[INFO  - 2019-03-01T07:17:49.217Z] Session [1e8a8630-3bf2-11e9-802b-17c1cee9e5e3] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-7-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2019-03-01T07:17:49.217Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 1e8a8630-3bf2-11e9-802b-17c1cee9e5e3
+[ERROR - 2019-03-01T07:17:49.991Z] Session [1e8a8630-3bf2-11e9-802b-17c1cee9e5e3] - page.onError - msg: TypeError: pre,template,textarea,script,style is not iterable!
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:49.991Z] Session [1e8a8630-3bf2-11e9-802b-17c1cee9e5e3] - page.onError - stack:
+  exports (http://htoa.tnebnet.org/oa/polyfills.a21819d9bec33a52d639.bundle.js:1)
+  (anonymous function) (http://htoa.tnebnet.org/oa/polyfills.a21819d9bec33a52d639.bundle.js:1)
+  (anonymous function) (http://htoa.tnebnet.org/oa/polyfills.a21819d9bec33a52d639.bundle.js:1)
+  Qa4U (http://htoa.tnebnet.org/oa/vendor.efd5e292213288728fed.bundle.js:1)
+  n (http://htoa.tnebnet.org/oa/inline.de07d622f63bd147758f.bundle.js:1)
+  cDNt (http://htoa.tnebnet.org/oa/main.5988073f7cad5a2da6fa.bundle.js:1)
+  n (http://htoa.tnebnet.org/oa/inline.de07d622f63bd147758f.bundle.js:1)
+  (anonymous function) (http://htoa.tnebnet.org/oa/main.5988073f7cad5a2da6fa.bundle.js:1)
+  n (http://htoa.tnebnet.org/oa/inline.de07d622f63bd147758f.bundle.js:1)
+  webpackJsonp (http://htoa.tnebnet.org/oa/inline.de07d622f63bd147758f.bundle.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:50.249Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424670196
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:51.006Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424671005
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:51.849Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424671788
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:52.644Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424672634
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:53.425Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424673416
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:54.205Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424674198
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:54.985Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424674974
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:55.764Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424675761
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:56.545Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424676533
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:57.324Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424677318
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:58.105Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424678098
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:58.931Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424678869
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-03-01T07:17:59.726Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1551424679710
+
+  phantomjs://platform/console++.js:263 in error
