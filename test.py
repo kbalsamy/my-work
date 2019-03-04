@@ -56,15 +56,7 @@
 
 # print((browser.page_source).encode('utf-8'))
 
-# browser.quit()
+# # browser.quit()
 
 # import sqlite3
-
-
-# connect = sqlite3.connect('sample.db')
-# cursor = connect.cursor()
-# cursor.execute("CREATE TABLE IF NOT EXISTS service (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, service UNIQUE, col1 TEXT)")
-# cursor.execute("CREATE TABLE IF NOT EXISTS bank (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, service TEXT, col2 TEXT, FOREIGN KEY(service) REFERENCES service(service))")
-# cursor.execute("INSERT INTO service (service, col1) VALUES ('connection1', 'world')")
-# cursor.execute("INSERT INTO bank (service, col2) VALUES ('connection1', 'world')")
-# connect.commit()
+# from constants import *

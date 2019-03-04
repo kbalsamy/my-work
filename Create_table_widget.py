@@ -1,49 +1,105 @@
 from tkinter import *
+from constants import *
 
 
-class Table_creator(Frame):
+class Plotter(Frame):
 
-    def __init__(self, window):
-        Frame.__init__(self, window)
-        self.window = window
-        self.is_row = False
-        self.pack(fill=X)
-        self.header = Frame(self)
-        self.header.pack(side=TOP, fill=BOTH, expand=1)
-        self.row = Frame(self)
-        self.row.pack(side=TOP, fill=BOTH, expand=1)
+    def __init__(self, parent):
+        Frame.__init__(self)
 
-    def exim_table(self, name, single_header=True):
+        self.parent = parent
 
-        if single_header:
-            h = Frame(self.header, relief=SOLID, bd=1, bg='#a0beef')
-            h.pack(side=LEFT, fill=BOTH, expand=1)
-            Label(h, text=name, height=2, bg='#a0beef').pack()
+        self.header_frame = Frame(self.parent)
+        self.header_frame.pack(side=TOP, fill=BOTH, expand=1)
+        self.table_row = Frame(self.parent, bg='blue')
+        self.table_row.pack(side=TOP, fill=BOTH, expand=1)
+        self.seperator = Frame(self.parent, height=5, relief=GROOVE, bg='pink')
+        self.seperator.pack(side=TOP, fill=BOTH, expand=1)
+        self.banking_frame = Frame(self.parent)
+        self.banking_frame.pack(side=TOP, fill=BOTH, expand=1)
+        self.charges_frame = Frame(self.parent)
+        self.charges_frame.pack(side=TOP, fill=BOTH, expand=1)
+        self.create_table_gui()
+
+    def create_table_gui(self):
+
+        for header in headers_list:
+            f1 = Frame(self.header_frame)
+            f1.pack(side=LEFT, fill=BOTH, expand=1)
+            f2 = Frame(f1)
+            f2.pack(side=TOP, fill=BOTH, expand=1)
+            Label(f2, text=header, bd=2, relief=SOLID).pack(side=TOP, fill=X, expand=1)
+            if header != 'Consumer Number':
+                f3 = Frame(f1)
+                f3.pack(side=TOP, fill=BOTH, expand=1)
+
+                for s in slot_list:
+                    Label(f3, text=s, bd=2, relief=SOLID).pack(side=LEFT, fill=X, expand=1)
+            else:
+                f4 = Frame(f1)
+                f4.pack(side=TOP, fill=BOTH, expand=1)
+                Label(f4, text='', relief=SOLID).pack(side=LEFT, fill=X, expand=1)
+
+    def plot_values(self, results):
+
+        if len(results) != 3:
+            Label(self.table_row, text=results, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
         else:
-            exim_frame = Frame(self.header, relief=SOLID, bd=1, bg='#a0beef')
-            exim_frame.pack(side=LEFT, fill=BOTH, expand=1)
-            Label(exim_frame, text=name, bg='#a0beef').pack()
-            con_frame = Frame(exim_frame, relief=SOLID, bd=0, bg='#a0beef')
-            con_frame.pack(side=TOP, fill=BOTH, expand=1)
-            c = ['C1', 'C2', 'C3', 'C4', 'C5']
-            for i in c:
-                Label(con_frame, text=i, bd=1, relief=SOLID, bg='#a0beef').pack(side=LEFT, fill=BOTH, expand=1)
-
-    def add_row(self, values):
-
-        if len(values) > 2:
-            status = StringVar()
-            status.set(values)
-            Entry(self.row, textvariable=status, state='readonly', bd=1, relief=SOLID, width=32).pack(side=LEFT, fill=BOTH, expand=1)
-            # Frame(self.row, height=140, bg='red').pack(side=TOP, fill=Y)
-
-        else:
-            s = StringVar()
-            s.set(values[0])
-            Entry(self.row, textvariable=s, state='readonly', bd=1, relief=SOLID, width=40).pack(side=LEFT, fill=BOTH, expand=1)
-            for val in values[1]:
+            val = StringVar()
+            val.set(results[0])
+            Entry(self.table_row, textvariable=val, width=40, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+            reading = results[1]
+            for r in reading[0:15]:
                 v = IntVar()
-                v.set(val)
-                Entry(self.row, textvariable=v, state='readonly', bd=1, relief=SOLID, width=5).pack(side=LEFT, fill=BOTH, expand=1)
-            self.is_row = True
-            Frame(self.window, height=400).pack(side=TOP, fill=Y)
+                v.set(r)
+                Entry(self.table_row, textvariable=v, width=5, justify=CENTER, state='readonly', bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+            self.create_banking_table()
+            self.plot_bankingvalues(results)
+            self.create_charges_table()
+            self.plot_chargesvalues(results)
+
+    def create_banking_table(self):
+        Label(self.banking_frame, text='Banking Details').pack(side=TOP, fill=BOTH, expand=1)
+        ban_head = Frame(self.banking_frame)
+        ban_head.pack(side=TOP, fill=BOTH, expand=1)
+        for s in slot_list:
+            Label(ban_head, text=s, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+
+    def plot_bankingvalues(self, values):
+        ban_row = Frame(self.banking_frame)
+        ban_row.pack(side=TOP, fill=BOTH, expand=1)
+        readings = values[1]
+        ban_readings = readings[15:]
+        for val in ban_readings:
+            var = IntVar()
+            var.set(val)
+            Entry(ban_row, textvariable=var, state='readonly', justify=CENTER, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+
+    def create_charges_table(self):
+
+        Label(self.charges_frame, text='Charges').pack(side=TOP, fill=BOTH, expand=1)
+        ch_head = Frame(self.charges_frame)
+        ch_head.pack(side=TOP, fill=BOTH, expand=1)
+        for c in ['Code', 'Description', 'Charges']:
+            Label(ch_head, text=c, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+
+    def plot_chargesvalues(self, values):
+        ch_row = Frame(self.charges_frame)
+        ch_row.pack(side=TOP, fill=BOTH, expand=1)
+        readings = values[2]
+        step1 = [readings[i:i + 3] for i in range(0, len(readings), 3)]
+        for ro in step1:
+            row = Frame(ch_row)
+            row.pack(side=TOP, fill=BOTH, expand=1)
+            for val in ro:
+                var = StringVar()
+                var.set(str(val))
+                Entry(row, textvariable=var, state='readonly', justify=CENTER, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+
+
+# root = Tk()
+# app = Plotter(root)
+# app.plot_values(sample_results)
+# app.plot_bankingvalues(sample_results)
+# app.plot_chargesvalues(sample_results)
+# root.mainloop()

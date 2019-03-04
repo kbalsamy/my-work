@@ -173,3 +173,9 @@
 2019-02-28 15:45:50,907 - INFO - Excel file download Finished
 2019-02-28 15:48:07,900 - INFO - Error occured while downloading excel file
 2019-02-28 15:49:26,977 - INFO - Thu Feb 28 15:49:26 2019 : Excel file Download Cancelled 
+2019-03-03 17:02:07,873 - INFO - Sun Mar  3 17:02:07 2019 : Data fetched for January2019
+2019-03-03 17:22:30,445 - INFO - Sun Mar  3 17:22:30 2019 : Data fetched for January2019
+2019-03-03 21:28:30,596 - INFO - Sun Mar  3 21:28:30 2019 : Data fetched for January2019
+2019-03-03 21:29:02,027 - INFO - Sun Mar  3 21:29:02 2019 : Excel file Download Cancelled 
+2019-03-04 08:55:31,406 - INFO - Mon Mar  4 08:55:31 2019 : Data fetched for 079204720585
+2019-03-04 09:06:47,490 - INFO - Mon Mar  4 09:06:47 2019 Batch download is completed

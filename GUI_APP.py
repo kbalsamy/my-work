@@ -12,7 +12,7 @@ import log
 import logging
 import time
 import database_frame as dbframe
-import extractor
+import scraper
 import Create_table_widget as Table
 import file_creator as excel
 
@@ -128,7 +128,7 @@ class Application(Frame):
                 self.master.after(100, self.check_sd_results)
 
             else:
-                self.errordialog = Pmw.MessageDialog(self.master, title='Retry', defaultbutton=0, buttons=('OK',), message_text='Not a valid Consumer number', command=self.close_errordialog)
+                self.errordialog = Pmw.MessageDialog(self.master, title='Check your service Number', defaultbutton=0, buttons=('OK',), message_text='Not a valid Consumer number', command=self.close_errordialog)
                 self.errordialog.activate()
         else:
             self.sdd.deactivate()
@@ -140,12 +140,10 @@ class Application(Frame):
             results = self.queue.get(0)
             self.progressbar.stop()
             Button(self.display_frame, text='Clear', command=self.clear_displayframe).pack()
-            manager = Table.Table_creator(self.display_frame)
-            manager.exim_table('Service Number')
-            manager.exim_table('Import Units', single_header=False)
-            manager.exim_table('Export Units', single_header=False)
-            manager.exim_table('Difference', single_header=False)
-            manager.add_row(results)
+            manager = Table.Plotter(self.display_frame)
+            manager.plot_values(results)
+            timestr = time.asctime()
+            logging.info('{} : Data fetched for {}'.format(timestr, results[0]))
 
         except queue.Empty:
             self.master.after(100, self.check_sd_results)
@@ -156,7 +154,7 @@ class Application(Frame):
         password = self.consumer_pass.getvalue()
         mnth = self.consumer_month.get()
         yr = self.consumer_year.get()
-        results = extractor.scrape(password, mnth, yr, uname=consumerNo)
+        results = scraper.main(url, password, mnth, yr, 'statement', uname=consumerNo)
         queue.put(results)
 
     def clear_displayframe(self):
@@ -216,7 +214,8 @@ class Application(Frame):
         self.service_list = service_list
 
     def get_batch_results(self, queue):
-        results = extractor.scrape(self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), servicelist=self.service_list)
+
+        results = scraper.main(url, self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), 'statement', serlist=self.service_list)
         queue.put(results)
 
     def db_spread_display(self, button):

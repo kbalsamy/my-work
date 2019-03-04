@@ -99,6 +99,9 @@ def downloadvalues(tablename):
     #     print(i)
     return results
 
+print(downloadvalues('January2019'))
+print(downloadvalues('chargesja2019'))
+
 
 def get_table_name():
 

@@ -17,14 +17,12 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class Appscraper():
 
-    def __init__(self, url, serviceName, servicePass, serviceMonth, serviceYear, dbConnect=None, serviceList=None):
+    def __init__(self, url, serviceName, servicePass, serviceMonth, serviceYear):
         self.url = url
         self.serviceName = serviceName
         self.servicePass = servicePass
         self.serviceMonth = serviceMonth
         self.serviceYear = serviceYear
-        self.dbConnect = dbConnect
-        self.serviceList = serviceList
         self.meterReadings = []
         self.reading_Charges = []
         self.bankingUnits = []
@@ -41,39 +39,56 @@ class Appscraper():
     def scrape(self, driver, page=None):
 
         driver.get(self.url)
-        login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-0")))
-        login.send_keys(self.serviceName)
-        password = driver.find_element_by_id("mat-input-1")
-        password.send_keys(self.servicePass)
-        submit = driver.find_element_by_css_selector(".mat-raised-button").click()
-        reading = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, sections.get(page))))
-        reading.click()
-        menu_selector = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#mat-select-1 .mat-select-arrow"))).click()
-        element = driver.find_element_by_css_selector(".ng-trigger-transformPanel")
-        actions = ActionChains(driver)
-        actions.move_to_element(element).perform()
-        select_month = driver.find_element_by_css_selector(month_dict.get(self.serviceMonth)).click()
-        if page == 'reading':
-            enter_year = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-5")))
-            enter_year.clear()
-            enter_year.send_keys(self.serviceYear)
-        else:
-            enter_year = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-4")))
-            enter_year.clear()
-            enter_year.send_keys(self.serviceYear)
+        try:
+            login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-0")))
+            login.send_keys(self.serviceName)
+            password = driver.find_element_by_id("mat-input-1")
+            password.send_keys(self.servicePass)
+            submit = driver.find_element_by_css_selector(".mat-raised-button").click()
+            reading = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, sections.get(page))))
+            reading.click()
+            try:
+                menu_selector = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#mat-select-1 .mat-select-arrow"))).click()
+                element = driver.find_element_by_css_selector(".ng-trigger-transformPanel")
+                actions = ActionChains(driver)
+                actions.move_to_element(element).perform()
+                select_month = driver.find_element_by_css_selector(month_dict.get(self.serviceMonth)).click()
+                if page == 'reading':
+                    enter_year = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-5")))
+                    enter_year.clear()
+                    enter_year.send_keys(self.serviceYear)
+                else:
+                    enter_year = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-4")))
+                    enter_year.clear()
+                    enter_year.send_keys(self.serviceYear)
+                try:
+                    enter_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".primary > .mat-button-wrapper"))).click()
+                    fetch_results = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".mr-1 > .mat-button-wrapper"))).click()
+                    results = driver.page_source
+                    for element in banking:
+                        javaScript = "return document.getElementById('{}').value;".format(element)
+                        self.bankingUnits.append(driver.execute_script(javaScript))
+                    logout_menu = driver.find_element_by_css_selector(".ml-xs .mat-icon").click()
+                    logout = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR,
+                                                                                             ".mat-menu-item:nth-child(5) > .mat-menu-ripple")))
+                    logout.click()
+                    driver.quit()
+                    return results
 
-        enter_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".primary > .mat-button-wrapper"))).click()
-        fetch_results = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".mr-1 > .mat-button-wrapper"))).click()
-        results = driver.page_source
-        for element in banking:
-            javaScript = "return document.getElementById('{}').value;".format(element)
-            self.bankingUnits.append(driver.execute_script(javaScript))
-        logout_menu = driver.find_element_by_css_selector(".ml-xs .mat-icon").click()
-        logout = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR,
-                                                                                 ".mat-menu-item:nth-child(5) > .mat-menu-ripple")))
-        logout.click()
-        driver.quit()
-        return results
+                except selenium.common.exceptions.TimeoutException as e:
+                    driver.quit()
+                    status = "Error3"
+                    return status
+
+            except selenium.common.exceptions.TimeoutException as e:
+                driver.quit()
+                status = "Error2"
+                return status
+
+        except (selenium.common.exceptions.WebDriverException, selenium.common.exceptions.TimeoutException) as e:
+            driver.quit()
+            status = "Error1"
+            return status
 
     def get_values(self, html, parse=None):
 
@@ -115,52 +130,60 @@ class Appscraper():
             return None
 
 
-def db_connect():
+def main(url, passwd, month, year, page, uname=None, serlist=None):
 
-    con = sqlite3.connect('ReadingsV1onAPP.db')
-    return con
-
-
-def main(url, uname, passwd, month, year, page):
-
-    crawler = Appscraper(url, uname, passwd, month, year)
-    d = crawler.driver()
-    html = crawler.scrape(d, page=page)
-    result = crawler.get_values(html, parse=page)
-    return result
+    if uname:
+        crawler = Appscraper(url, uname, passwd, month, year)
+        d = crawler.driver()
+        html = crawler.scrape(d, page=page)
+        result = crawler.get_values(html, parse=page)
+        return result
+    else:
+        tablename1 = month + str(year)
+        tablename2 = 'charges' + month[0:2] + str(year)
+        db_con = db_connect()
+        for s in serlist:
+            crawler = Appscraper(url, s, passwd, month, year)
+            d = crawler.driver(noShow=False)
+            html = crawler.scrape(d, page=page)
+            result = crawler.get_values(html, parse=page)
+            status = write_to_db(result, db_con, tablename1, tablename2)
+        return status
 
 
 def write_to_db(results, dbcon, tablename1, tablename2):
 
     cursor = dbcon.cursor()
-    create_table1 = """CREATE TABLE IF NOT EXISTS {} (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, consumer UNIQUE, ImportC1 TEXT, ImportC2 TEXT,ImportC3 TEXT,ImportC4 TEXT, ImportC5 TEXT,ExportC1 TEXT,ExportC2 TEXT,ExportC3 TEXT,ExportC4 TEXT,ExportC5 TEXT, DifUnitC1 REAL, DifUnitC2 REAL, DifUnitC3 REAL, DifUnitC4 REAL, DifUnitC5 REAL, BankingC1 REAL,BankingC2 REAL,BankingC3 REAL,BankingC4 REAL,BankingC5 REAL )""".format(tablename1)
+    create_table1 = """CREATE TABLE IF NOT EXISTS {} (consumer UNIQUE, ImportC1 TEXT, ImportC2 TEXT,ImportC3 TEXT,ImportC4 TEXT, ImportC5 TEXT,ExportC1 TEXT,ExportC2 TEXT,ExportC3 TEXT,ExportC4 TEXT,ExportC5 TEXT, DifUnitC1 REAL, DifUnitC2 REAL, DifUnitC3 REAL, DifUnitC4 REAL, DifUnitC5 REAL, BankingC1 REAL,BankingC2 REAL,BankingC3 REAL,BankingC4 REAL,BankingC5 REAL )""".format(tablename1)
     cursor.execute(create_table1)
     create_table2 = """CREATE TABLE IF NOT EXISTS {} (consumer TEXT, code TEXT, description TEXT, charges TEXT, FOREIGN KEY (consumer) REFERENCES {}(consumer))""".format(tablename2, tablename1)
     cursor.execute(create_table2)
     if results:
+        consumer = results[0]
         row = results[1]
         row.insert(0, results[0])
-        charges_r1 = results[2]
-        charges_r2 = [charges_r1[i:i + 3] for i in range(0, len(charges_r1), 3)]
-        charges_r2.insert(0, results[0])
-        # print(charges_r2)
-        insert_values1 = """INSERT INTO {} (consumer, ImportC1, ImportC2, ImportC3, ImportC4, ImportC5, ExportC1, ExportC2,ExportC3,ExportC4,ExportC5, DifUnitC1,DifUnitC2,DifUnitC3,DifUnitC4,DifUnitC5, BankingC1, BankingC2,BankingC3,BankingC4,BankingC5) VALUES(?, ?, ?, ?, ?,?, ?, ?, ?, ?,?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)""".format(tablename1)
-        con_number = charges_r2[0]
-        char_values = charges_r2
-        insert_values2 = """ INSERT INTO {} (consumer, code, description, charges ) VALUES (?,?,?,?) """.format(tablename2)
+        row_valinject = ", ".join('?' * len(row))
+        insert_values1 = """INSERT INTO {} VALUES({})""".format(tablename1, row_valinject)
+        charges_results = results[2]
+        charges_row = [charges_results[i:i + 3] for i in range(0, len(charges_results), 3)]
+        charges_valinject = ", ".join('?' * 3)
+        charges_row.insert(0, results[0])
         try:
-            cursor.execute(insert_values1, (row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],row[15],row[16],row[17],row[18],row[19],row[20]))
-            for val in charges_r2[1:]:
-                for inp in val:
-                    print(inp[0], inp[1], inp[2])
-                    cursor.execute(insert_values2, (con_number, inp[0], inp[1], inp[2]))
+            cursor.execute(insert_values1, row)
+            for chaque in charges_row[1:]:
+                create_table2 = "INSERT INTO {} VALUES('{}',{})".format(tablename2, consumer, charges_valinject)
+                cursor.execute(create_table2, chaque)
             dbcon.commit()
+            return None
+
         except sqlite3.IntegrityError as e:
             print('already exits')
+            return "Error4"
+
     else:
         return " No results found"
 
 
-# db_res = main(url, '079204720584', 'pppp', 'January', 2019, 'statement')
-dbcon = db_connect()
-write_to_db(sample_results, dbcon, 'January2009', 'chargesjan2009')
+# main(url, 'pppp', 'January', 2019, 'statement', serlist=sample)
+# dbcon = db_connect()
+# write_to_db(db_res, dbcon, 'January2019', 'chargesjan2019')
