@@ -14,13 +14,13 @@ class databaseFrame(Frame):
         self.display = display
         self.parent = parent
         self.canvas = canvas
-        # self.consumer = StringVar()
         self.month = StringVar()
         self.year = IntVar()
         self.tablename = StringVar()
-        self.av_db = excel.get_table_name()
+        self.av_db = excel.get_table_name(db_connect())
 
-        search_pane = Frame(self.master, bd=3, relief=GROOVE)
+        # creaing searching pane tool bar
+        search_pane = Frame(self.master, bd=2, relief=GROOVE)
         search_pane.pack(side=TOP, fill=BOTH, expand=1)
         self.refresh = Button(search_pane, text='Refresh', command=self.check_db_latest).pack(side=TOP)
         Label(search_pane, text='Search Database here', anchor='w').pack(side=TOP, fill=X, expand=1)
@@ -28,8 +28,6 @@ class databaseFrame(Frame):
         self.tablename.set('select')
         self.op = OptionMenu(search_pane, self.tablename, *self.av_db, command=self.getTablename)
         self.op.pack(side=LEFT, anchor='w')
-        self.btn1 = Button(search_pane, text='Display', state=DISABLED, command=self.show_db_table)
-        self.btn1.pack(side=LEFT)
         btn2 = Button(search_pane, text='Clear', command=lambda: self.clear_display(btn1=True))
         btn2.pack(side=LEFT)
         self.dlbtn = Button(search_pane, text='Download Excel', state=DISABLED, command=self.file_to_save)
@@ -37,7 +35,6 @@ class databaseFrame(Frame):
 
         search_pane2 = Frame(self.master, bd=5, relief=GROOVE)
         search_pane2.pack(side=TOP, fill=BOTH, expand=1)
-        # Label(search_pane2, text='Enter Consumer number', anchor='w').pack(side=LEFT)
         self.consumer = Pmw.EntryField(search_pane2, labelpos=W, label_text='Consumer Number', validate='numeric')
         self.consumer.pack(side=LEFT)
         self.month.set('January')
@@ -49,38 +46,30 @@ class databaseFrame(Frame):
         Button(search_pane2, text='Clear', command=lambda: self.clear_display(btn2=True)).pack(side=LEFT)
 
     def check_db_latest(self):
-        self.av_db = excel.get_table_name()
+        self.av_db = excel.get_table_name(db_connect())
         menu = self.op['menu']
         menu.delete(0, 'end')
         for val in self.av_db:
             menu.add_command(label=val, command=lambda: self.tablename.set(val))
 
         if self.tablename.get() == 'Not available' or self.tablename.get() == 'select':
-            self.btn1.configure(state=DISABLED)
             self.dlbtn.configure(state=DISABLED)
         else:
-            self.btn1.configure(state=ACTIVE)
             self.dlbtn.configure(state=ACTIVE)
 
     def getTablename(self, event):
         # function used to check the optionmenu selection and trigger button availabilty
         selected = self.tablename.get()
         if self.tablename.get() == 'Not available' or self.tablename.get() == 'select':
-            self.btn1.configure(state=DISABLED)
             self.dlbtn.configure(state=DISABLED)
-
         else:
-            self.btn1.configure(state=ACTIVE)
             self.dlbtn.configure(state=ACTIVE)
 
     def clear_display(self, btn1=None, btn2=None):
         wid = self.display.winfo_children()
         for w in wid:
             w.destroy()
-        if btn1:
-            self.btn1.configure(state=ACTIVE)
-        else:
-            self.btn3.configure(state=ACTIVE)
+        self.btn3.configure(state=ACTIVE)
 
     def show_db_table(self):
         self.btn1.configure(state=DISABLED)
@@ -135,8 +124,7 @@ class databaseFrame(Frame):
     def file_to_save(self):
         filename = filedialog.asksaveasfilename(initialdir="/", title="Select file",
                                                 filetypes=(("Excel workbook", "*.xlsx"), ("all files", "*.*")))
-        print(filename)
-        # print(filename)
+
         if filename:
             tablename = self.tablename.get()
             d = excel.xldownloader("{}.xlsx".format(filename), tablename)
@@ -144,4 +132,4 @@ class databaseFrame(Frame):
                 logging.info('Excel file download Finished')
         else:
             timestr = time.asctime()
-            logging.info('{} : Excel file Download Cancelled '.format(timestr))
+            logging.info('{} : Excel file Download Cancelled'.format(timestr))

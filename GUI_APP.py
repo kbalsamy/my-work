@@ -197,7 +197,7 @@ class Application(Frame):
         try:
             results = self.queue.get(0)
             self.progressbar.stop()
-            self.messbox = Pmw.MessageDialog(self.master, title='Batch download status', message_text=' Download completed', buttons=('Display', 'OK'), command=self.db_spread_display)
+            self.messbox = Pmw.MessageDialog(self.master, title='Batch download status', message_text=' Download completed', buttons=('OK',), command=self.db_spread_display)
             self.messbox.activate(geometry='centerscreenfirst')
             timestr = time.asctime()
             logging.info('{} Batch download is completed'.format(timestr))
@@ -219,36 +219,9 @@ class Application(Frame):
         queue.put(results)
 
     def db_spread_display(self, button):
+        #  will be extended in future
+        self.messbox.deactivate()
         self.menubar.entryconfig('Batch Download', state='active')
-        tbname = self.bd_month.get() + str(self.bd_year.get())
-
-        if button == 'Display':
-            self.messbox.deactivate()
-            results = excel.downloadvalues(tbname)
-            hf = Frame(self.display_frame)
-            hf.pack(side=TOP, fill=BOTH, expand=1)
-            for name in ['ID', 'Consumer', 'Slot', 'Import units', 'Export Units', 'Difference']:
-                Label(hf, text=name, relief=SOLID, bd=1, width=20).pack(side=LEFT, fill=X, expand=1)
-            if results:
-                for row in range(len(results)):
-                    rf = Frame(self.display_frame)
-                    rf.pack(side=TOP, fill=BOTH, expand=1)
-                    for val in results[row]:
-                        current = StringVar()
-                        current.set(val)
-                        Entry(rf, textvariable=current, relief=SOLID, bd=1, width=20).pack(side=LEFT, fill=X, expand=1)
-                timestr = time.asctime()
-                logging.info('{} : Data fetched for {}'.format(timestr, tbname))
-            else:
-                self.status = Pmw.MessageDialog(self.master, title='No record found', defaultbutton=0, buttons=('OK',), message_text='Not ', command=lambda: print('close message dialog'))
-                timestr = time.asctime()
-                logging.info('{} : Data not found for {}'.format(timestr, self.tablename.get()))
-
-            self.master.update()
-            self.canvas.configure(scrollregion=self.canvas.bbox('all'))
-
-        else:
-            self.messbox.deactivate()
 
 
 
