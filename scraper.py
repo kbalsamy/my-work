@@ -115,16 +115,19 @@ class Appscraper():
             for i in range(len(imp)):
                 temp3.append((imp[i].text).strip())
             temp4 = [temp3[i:i + 6] for i in range(0, len(temp3), 6)]
-            imp = temp4[3]
-            imp.pop(0)
-            exp = temp4[7]
-            exp.pop(0)
-            dif = [float(exp[i]) - float(imp[i]) for i in range(len(imp))]
-            charges = temp3[68:]
-            temp5 = imp + exp + dif + self.bankingUnits
-            self.reading_Charges.append(temp5)
-            self.reading_Charges.append(charges)
-            return self.reading_Charges
+            try:
+                imp = temp4[3]
+                imp.pop(0)
+                exp = temp4[7]
+                exp.pop(0)
+                dif = [float(exp[i]) - float(imp[i]) for i in range(len(imp))]
+                charges = temp3[68:]
+                temp5 = imp + exp + dif + self.bankingUnits
+                self.reading_Charges.append(temp5)
+                self.reading_Charges.append(charges)
+                return self.reading_Charges
+            except:
+                return None
 
         else:
             return None
