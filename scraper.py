@@ -144,7 +144,7 @@ def main(url, passwd, month, year, page, uname=None, serlist=None):
         db_con = db_connect()
         for s in serlist:
             crawler = Appscraper(url, s, passwd, month, year)
-            d = crawler.driver(noShow=False)
+            d = crawler.driver()
             html = crawler.scrape(d, page=page)
             result = crawler.get_values(html, parse=page)
             status = write_to_db(result, db_con, tablename1, tablename2)
@@ -182,8 +182,3 @@ def write_to_db(results, dbcon, tablename1, tablename2):
 
     else:
         return " No results found"
-
-
-# main(url, 'pppp', 'January', 2019, 'statement', serlist=sample)
-# dbcon = db_connect()
-# write_to_db(db_res, dbcon, 'January2019', 'chargesjan2019')

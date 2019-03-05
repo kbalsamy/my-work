@@ -1,62 +1,29 @@
-# from tkinter import *
+import requests
+from requests.auth import HTTPBasicAuth
+from requests.auth import HTTPDigestAuth
+import pprint
+
+url = "http://htoa.tnebnet.org/oa/login/login"
+getmenu = 'http://htoa.tnebnet.org/oa-report-service/report/org-summaries'
+
+t = 'http://htoa.tnebnet.org/oa/vendor.efd5e292213288728fed.bundle.js'
 
 
-# class testingApp(Frame):
-
-#     def __init__(self, master):
-#         Frame.__init__(self)
-#         self.master = master
-#         self.master.geometry('650x350')
-#         self.topwidgets()
-#         self.middle()
-#         self.bottom()
-
-#     def topwidgets(self):
-#         frame = Frame(self.master, bg='pink')
-#         frame.pack(side=TOP, fill=BOTH, expand=1)
-#         Button(frame, text='add', command=lambda: print('tobe imple')).pack()
-#         frame.pack_propagate(0)
-
-#     def middle(self):
-#         canvas = Canvas(self.master)
-#         canvas.pack(side=TOP, fill=BOTH, expand=1)
-#         canvas.pack_propagate(0)
-#         scrollbar = Scrollbar(canvas, command=canvas.yview)
-#         scrollbar.pack(side=RIGHT, fill='y')
-#         canvas.configure(yscrollcommand=scrollbar.set)
-#         frame = Frame(canvas)
-#         frame.pack(side=TOP, fill=BOTH, expand=1)
-#         canvas.create_window((0, 0), window=frame, anchor='nw')
-#         for i in range(100):
-#             lf = Frame(frame)
-#             lf.pack(side=TOP, fill=X, expand=1)
-#             for x in range(3):
-#                 Entry(lf, state='readonly', width=20, bd=1).pack(side=LEFT, fill=X, expand=1)
-#         self.master.update()
-#         canvas.configure(scrollregion=canvas.bbox('all'))
-
-#     def bottom(self):
-#         frame = Frame(self.master, bg='yellow')
-#         frame.pack(side=TOP, fill=BOTH, expand=1)
-#         frame.pack_propagate(0)
+headers = {'Host': 'htoa.tnebnet.org',
+           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+           'Accept': 'application/json, text/plain, */*',
+           'Accept-Language': 'en-US,en;q=0.5',
+           'Referer': 'http: // htoa.tnebnet.org / oa / gs / gs - list',
+           'Authorization': "",
+           'Content-Type': 'application/json',
+           'Connection': 'keep-alive',
+           'Cache-Control': 'max-age=0', }
 
 
-# root = Tk()
-# test = testingApp(root)
-# root.mainloop()
+with requests.Session() as s:
 
-
-# from selenium import webdriver
-
-# browser = webdriver.PhantomJS()
-
-# # browser.set_window_size(1120, 550)
-
-# browser.get('https://www.python.org')
-
-# print((browser.page_source).encode('utf-8'))
-
-# # browser.quit()
-
-# import sqlite3
-# from constants import *
+    r = s.get(getmenu, headers=headers)
+    c = r.text
+    pprint.pprint(c)
+    # r2 = s.get(t)
+    # pprint.pprint(r2.text)

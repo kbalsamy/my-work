@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import itertools
 
 global url
 global month_dict
@@ -35,6 +36,7 @@ banking = ['mat-input-22', 'mat-input-23', 'mat-input-24', 'mat-input-25', 'mat-
 headers_list = ['Consumer Number', 'Import units', 'Export Units', 'Difference']
 slot_list = ['C1', "C2", "C3", "C4", "C5"]
 
+sample = ['079204720584', '079204720585']
 
 sample_results = ['079204720584',
                   ['171', '333', '153', '648', '828', '46962', '15246', '5130', '163125', '57006',
@@ -47,18 +49,30 @@ sample_results = ['079204720584',
 
 def make_dict_charges(values):
 
-  chargesCodeList = {}
-  e1 = values[2]
-  x = 0
-  y = 1
-  while y <= 21:
-    chargesCodeList[e1[x]] = e1[y]
-    x += 3
-    y = x + 1
-  return chargesCodeList
+    chargesCodeList = {}
+    e1 = values[2]
+    x = 0
+    y = 1
+    while y <= 21:
+        chargesCodeList[e1[x]] = e1[y]
+        x += 3
+        y = x + 1
+    return chargesCodeList
+
+
+def results_compact(readings, charges):
+
+    results = []
+    for row in readings:
+        s1 = row[0]
+        results.append(s1)
+        s2 = row[1:]
+        results.append(s2)
+        results.append(charges)
+    return results
 
 
 def db_connect():
 
-  connect = sqlite3.connect('ReadingsV1onAPP.db')
-  return connect
+    connect = sqlite3.connect('ReadingsV1onAPP.db')
+    return connect

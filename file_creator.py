@@ -25,6 +25,20 @@ def write_excel(results, worksheet):
         c = 0
 
 
+def get_consumer_from_db(cursor, tablename, consumer):
+    args = "SELECT * FROM '{}' WHERE consumer = '{}' ;".format(tablename, consumer)
+    cursor.execute(args)
+    results = cursor.fetchall()
+    return results
+
+
+def get_charges_from_db(cursor, tablename, consumer):
+    args = "SELECT code, description, charges FROM '{}' WHERE consumer = '{}' ;".format(tablename, consumer)
+    cursor.execute(args)
+    results = cursor.fetchall()
+    return results
+
+
 def get_values_from_db(cursor, tablename):
     args = "SELECT * FROM {}".format(tablename)
     cursor.execute(args)
