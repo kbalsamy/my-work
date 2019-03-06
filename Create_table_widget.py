@@ -87,7 +87,7 @@ class Plotter(Frame):
         ch_row = Frame(self.charges_frame)
         ch_row.pack(side=TOP, fill=BOTH, expand=1)
         readings = values[2]
-        if len(readings) != 7:
+        if len(readings) > 7:
             step1 = [readings[i:i + 3] for i in range(0, len(readings), 3)]
             for ro in step1:
                 row = Frame(ch_row)
@@ -97,6 +97,7 @@ class Plotter(Frame):
                     var.set(str(val))
                     Entry(row, textvariable=var, state='readonly', justify=CENTER, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
         else:
+
             for ro in readings:
                 row = Frame(ch_row)
                 row.pack(side=TOP, fill=BOTH, expand=1)

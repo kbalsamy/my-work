@@ -13,6 +13,7 @@ import logging
 import time
 import database_frame as dbframe
 import scraper
+import api
 import Create_table_widget as Table
 import file_creator as excel
 
@@ -70,7 +71,7 @@ class Application(Frame):
         logger.addHandler(self.log_handler)
         self.queue = Queue()
         # database table query widget frame
-        dbframe.databaseFrame(self.top_frame, self.display_frame, self.master, self.canvas)
+        dbframe.databaseFrame(self.top_frame, self.display_frame, self.master, self.canvas, self.menubar)
 
     def build_menu(self):
         # menubar created here
@@ -143,7 +144,7 @@ class Application(Frame):
             manager = Table.Plotter(self.display_frame)
             manager.plot_values(results)
             timestr = time.asctime()
-            logging.info('{} : Data fetched for {}'.format(timestr, results[0]))
+            logging.info('{} : Data fetched for {}'.format(timestr, self.consumer_entry.getvalue()))
 
         except queue.Empty:
             self.master.after(100, self.check_sd_results)
@@ -154,8 +155,32 @@ class Application(Frame):
         password = self.consumer_pass.getvalue()
         mnth = self.consumer_month.get()
         yr = self.consumer_year.get()
-        results = scraper.main(url, password, mnth, yr, 'statement', uname=consumerNo)
-        queue.put(results)
+        tablename1 = mnth + str(yr)
+        tablename2 = 'charges' + mnth[0:2] + str(yr)
+        fin_results = []
+        fin_results.append(consumerNo)
+        db = db_connect()
+        cursor = db.cursor()
+        args1 = "SELECT * FROM {} WHERE consumer = '{}'".format(tablename1, consumerNo)
+        cursor.execute(args1)
+        red = cursor.fetchall()
+
+        if red:
+            args2 = "SELECT * FROM {} WHERE consumer = '{}'".format(tablename2, consumerNo)
+            cursor.execute(args2)
+            chrgs = cursor.fetchall()
+            t1 = []
+            for row in red:
+                t1.append(row)
+            t1.pop(0)
+            fin_results.append(t1)
+            fin_results.append(chrgs)
+            print(fin_results)
+            queue.put(fin_results)
+        else:
+            print('online search started')
+            results = api.main(url, password, mnth, yr, uname=consumerNo)
+            queue.put(results)
 
     def clear_displayframe(self):
 
@@ -201,8 +226,6 @@ class Application(Frame):
             self.messbox.activate(geometry='centerscreenfirst')
             timestr = time.asctime()
             logging.info('{} Batch download is completed'.format(timestr))
-            # b = Button(self.display_frame, text='Download', command=self.file_to_save)
-            # b.pack()
 
         except queue.Empty:
             self.master.after(100, self.show_batch_results)
@@ -215,7 +238,7 @@ class Application(Frame):
 
     def get_batch_results(self, queue):
 
-        results = scraper.main(url, self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), 'statement', serlist=self.service_list)
+        results = api.main(url, self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), serlist=self.service_list)
         queue.put(results)
 
     def db_spread_display(self, button):

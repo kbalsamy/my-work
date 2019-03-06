@@ -5,17 +5,19 @@ import Pmw
 import logging
 import time
 import Create_table_widget as Table
+import GUI_APP
 
 
 class databaseFrame(Frame):
 
-    def __init__(self, master, display, parent, canvas):
+    def __init__(self, master, display, parent, canvas, menu):
         Frame.__init__(self)
 
         self.master = master
         self.display = display
         self.parent = parent
         self.canvas = canvas
+        self.menu = menu
 
         self.month = StringVar()
         self.year = IntVar()
@@ -50,6 +52,7 @@ class databaseFrame(Frame):
         Button(search_pane2, text='Clear', command=self.clear_display).pack(side=LEFT)
 
     def check_db_latest(self):
+        self.menu.entryconfig('Single Download', state='active')
         self.av_db = excel.get_table_name(db_connect())
         menu = self.op['menu']
         menu.delete(0, 'end')
