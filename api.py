@@ -72,15 +72,16 @@ def plot_values(results, uname):
     else:
         timestr = time.asctime()
         logging.info('{} :values for {} are not found'.format(timestr, uname))
-        return 'readings are not found'
+        return None
 
 
 def fetch(url, username, pword, month, year):
 
     options = Options()
     options.headless = True
-    binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
-    driver = webdriver.Chrome(options=options, firefox_binary=binary)
+    # binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
+    # driver = webdriver.Firefox(options=options, firefox_binary=binary, executable_path='geckodriver.exe')
+    driver = webdriver.Firefox(options=options, executable_path='geckodriver.exe')
     driver.get(url)
     try:
         login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-0")))
@@ -112,7 +113,7 @@ def write_to_db(results, dbcon, tablename1, tablename2):
     cursor.execute(create_table1)
     create_table2 = """CREATE TABLE IF NOT EXISTS {} (consumer TEXT, code TEXT, description TEXT, charges TEXT, FOREIGN KEY (consumer) REFERENCES {}(consumer))""".format(tablename2, tablename1)
     cursor.execute(create_table2)
-    if results:
+    if results != 'readings are not found':
         consumer = results[0]
         row = results[1]
         row.insert(0, results[0])
@@ -132,7 +133,7 @@ def write_to_db(results, dbcon, tablename1, tablename2):
             return None
 
         except sqlite3.IntegrityError as e:
-            print('already exits')
+            # print('already exits')
             timestr = time.asctime()
             logging.info('{} : values for {} already exists'.format(timestr, consumer))
             return "Error4"

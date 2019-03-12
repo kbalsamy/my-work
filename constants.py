@@ -13,8 +13,7 @@ global banking
 global chargesCodeList
 global month_selector
 
-url = os.environ.get("login_url")
-pword = os.environ.get("p_word")
+url = "http://htoa.tnebnet.org/oa/login/login"
 
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -54,33 +53,33 @@ sample_results = ['079204720584',
 
 def make_dict_charges(values):
 
-    chargesCodeList = {}
-    e1 = values[2]
-    x = 0
-    y = 1
-    while y <= 21:
-        chargesCodeList[e1[x]] = e1[y]
-        x += 3
-        y = x + 1
-    return chargesCodeList
+  chargesCodeList = {}
+  e1 = values[2]
+  x = 0
+  y = 1
+  while y <= 21:
+    chargesCodeList[e1[x]] = e1[y]
+    x += 3
+    y = x + 1
+  return chargesCodeList
 
 
 def results_compact(readings, charges):
 
-    results = []
-    for row in readings:
-        s1 = row[0]
-        results.append(s1)
-        s2 = row[1:]
-        results.append(s2)
-        results.append(charges)
-    return results
+  results = []
+  for row in readings:
+    s1 = row[0]
+    results.append(s1)
+    s2 = row[1:]
+    results.append(s2)
+    results.append(charges)
+  return results
 
 
 def db_connect():
 
-    connect = sqlite3.connect('ReadingsV1onAPP.db')
-    return connect
+  connect = sqlite3.connect('ReadingsV1onAPP.db')
+  return connect
 
 
 m = ['079204720584', ['234', '153', '54', '684', '486', '17973', '12645', '3573', '63648', '28233', 17739.0, 12492.0, 3519.0, 62964.0, 27747.0, '6307', '4490', '7960', '75115', '13983.86'], [['C002', 'O&M Charges', '22668'], ['C003', 'Transmission Charges', '53153'], ['C004', 'System Operation Charges', '591'], ['C005', 'RKvah Penalty', '1242'], ['C006', 'Negative Energy Charges', '0'], ['C007', 'Scheduling Charges', '2240'], ['C001', 'Meter Reading Charges', '300']]]

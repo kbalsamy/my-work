@@ -60,3 +60,30 @@
 2019-03-06 22:08:43,658 - INFO - Wed Mar  6 22:08:43 2019 : Data fetched for 079204721066
 2019-03-06 22:17:30,100 - INFO - Wed Mar  6 22:17:30 2019 : Data fetched for 079204721265
 2019-03-06 22:17:46,893 - INFO - Wed Mar  6 22:17:46 2019 : Data not found for 079204721265
+2019-03-12 23:06:55,659 - INFO - Tue Mar 12 23:06:55 2019 : Data fetched for 079204720584
+2019-03-12 23:07:05,820 - INFO - Tue Mar 12 23:07:05 2019 : Data not found for 
+2019-03-12 23:07:09,678 - INFO - Tue Mar 12 23:07:09 2019 : Data not found for 
+2019-03-12 23:07:13,032 - INFO - Tue Mar 12 23:07:13 2019 : Data fetched for 079204720584
+2019-03-12 23:07:17,043 - INFO - Tue Mar 12 23:07:17 2019 : Data fetched for 079204720584
+2019-03-12 23:07:25,015 - INFO - Tue Mar 12 23:07:25 2019 : Data fetched for 079204720584
+2019-03-12 23:09:18,663 - INFO - Tue Mar 12 23:09:18 2019 : Data not found for 
+2019-03-12 23:09:30,237 - INFO - Tue Mar 12 23:09:30 2019 : Data fetched for 079204720584
+2019-03-12 23:12:30,190 - INFO - Tue Mar 12 23:12:30 2019 : Data fetched for 079204720584
+2019-03-12 23:14:51,009 - INFO - Tue Mar 12 23:14:51 2019 : Data fetched for 079204720584
+2019-03-12 23:18:14,388 - INFO - Tue Mar 12 23:18:14 2019 : Data fetched for 079204720584
+2019-03-12 23:18:35,713 - INFO - Tue Mar 12 23:18:35 2019 : Data fetched for 079204720584
+2019-03-12 23:22:32,049 - INFO - Tue Mar 12 23:22:32 2019 : Data fetched for 079204720584
+2019-03-12 23:22:35,670 - INFO - Tue Mar 12 23:22:35 2019 : Data fetched for 079204720584
+2019-03-12 23:22:43,655 - INFO - Tue Mar 12 23:22:43 2019 : Data fetched for 079204720584
+2019-03-12 23:22:48,414 - INFO - Tue Mar 12 23:22:48 2019 : Data fetched for 079204720584
+2019-03-12 23:25:55,242 - INFO - Tue Mar 12 23:25:55 2019 : Data fetched for 079224723996
+2019-03-12 23:26:28,204 - INFO - Tue Mar 12 23:26:28 2019 : values for 079204720586 already exists
+2019-03-12 23:26:39,301 - INFO - Tue Mar 12 23:26:39 2019 : values for 079204720640 already exists
+2019-03-12 23:26:42,357 - INFO - Tue Mar 12 23:26:42 2019 Batch download is completed
+2019-03-12 23:27:42,923 - INFO - Tue Mar 12 23:27:42 2019 : values for 079204720586 already exists
+2019-03-12 23:27:54,085 - INFO - Tue Mar 12 23:27:54 2019 : values for 079204720640 already exists
+2019-03-12 23:27:56,236 - INFO - Tue Mar 12 23:27:56 2019 Batch download is completed
+2019-03-12 23:30:28,751 - INFO - Tue Mar 12 23:30:28 2019 :values for None are not found
+2019-03-12 23:33:00,719 - INFO - Tue Mar 12 23:33:00 2019 : values for 079204720586 already exists
+2019-03-12 23:33:11,989 - INFO - Tue Mar 12 23:33:11 2019 : values for 079204720640 already exists
+2019-03-12 23:33:14,551 - INFO - Tue Mar 12 23:33:14 2019 Batch download is completed

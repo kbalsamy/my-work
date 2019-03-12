@@ -36,8 +36,8 @@ class Application(Frame):
         self.height = height
         self.width = width
         self.master.title(self.title)
-        self.master.geometry('%dx%d' % (height, width))
-        self.master.icon()
+        self.master.geometry('%dx%d+150+0' % (height, width))
+
         # Seperating working regions into three
         # Top frame built using Frame widgets
         self.top_frame = Frame(self.master, bg='pink', width=1050)
@@ -88,7 +88,7 @@ class Application(Frame):
         Pmw.aboutcopyright('Copyright Thiran Softwares 2019\nAll rights reserved')
         Pmw.aboutcontact(
             'For information about this application contact:\n' +
-            '  email: help@thiransoftwares.com'
+            '  email: helpdesk@thiransoft.com'
         )
         about = Pmw.AboutDialog(self.master, title='About AMR Extractor', buttons=('OK',))
         about.activate(geometry='centerscreenfirst')
@@ -139,12 +139,12 @@ class Application(Frame):
         try:
             results = self.queue.get(0)
             self.progressbar.stop()
+            self.clear_displayframe()
             Button(self.display_frame, text='Clear', command=self.clear_displayframe).pack()
             manager = Table.Plotter(self.display_frame)
             if results:
                 manager.plot_values(results)
                 timestr = time.asctime()
-                logging.info('{} : Data fetched for {}'.format(timestr, self.consumer_entry.getvalue()))
             else:
                 self.Rstatus = Pmw.MessageDialog(self.master, title='Status', defaultbutton=0, buttons=('OK',), message_text='Data not found for {}'.format(self.consumer_entry.getvalue()), command=self.close_Rstatus)
                 self.Rstatus.activate(geometry='centerscreenfirst')
@@ -164,13 +164,20 @@ class Application(Frame):
         tablename1 = mnth + str(yr)
         tablename2 = 'charges' + mnth[0:2] + str(yr)
         cursor = db_connect().cursor()
-        readings = excel.get_consumer_from_db(cursor, tablename1, consumerNo)
-        charges = excel.get_charges_from_db(cursor, tablename2, consumerNo)
-        if readings and charges:
-            results = results_compact(readings, charges)
-            queue.put(results)
+        try:
+            readings = excel.get_consumer_from_db(cursor, tablename1, consumerNo)
+            charges = excel.get_charges_from_db(cursor, tablename2, consumerNo)
+            if readings and charges:
+                results = results_compact(readings, charges)
+                queue.put(results)
+            else:
+                self.consumer_pass = Pmw.PromptDialog(self.master, title='Online search window', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK',))
+                self.consumer_pass.activate(geometry='centerscreenfirst')
+                self.progressbar.start()
+                results = api.main(url, self.consumer_pass.get(), mnth, yr, uname=consumerNo)
+                queue.put(results)
 
-        else:
+        except sqlite3.OperationalError as e:
             self.consumer_pass = Pmw.PromptDialog(self.master, title='Online search window', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK',))
             self.consumer_pass.activate(geometry='centerscreenfirst')
             self.progressbar.start()
@@ -205,6 +212,7 @@ class Application(Frame):
             self.pword_dialog = Pmw.PromptDialog(self.master, title='Password', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK',))
             self.pword_dialog.activate(geometry='centerscreenfirst')
             self.bdownload.deactivate()
+            self.progressbar.configure(mode='indeterminate')
             self.progressbar.start()
             # place thread here
             threading.Thread(target=self.get_batch_results, args=(self.queue,)).start()
@@ -247,4 +255,5 @@ class Application(Frame):
 if __name__ == '__main__':
     root = Tk()
     app = Application(root, 'AMR EXTRACTOR', 1050, 650)
+    root.wm_iconbitmap('transmission.ico')
     app.mainloop()

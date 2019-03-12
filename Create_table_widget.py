@@ -81,7 +81,7 @@ class Plotter(Frame):
         ch_head = Frame(self.charges_frame)
         ch_head.pack(side=TOP, fill=BOTH, expand=1)
         for c in ['Code', 'Description', 'Charges']:
-            Label(ch_head, text=c, bd=2, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
+            Label(ch_head, text=c, bd=2, width=40, relief=SOLID).pack(side=LEFT, fill=BOTH, expand=1)
 
     def plot_chargesvalues(self, values):
         ch_row = Frame(self.charges_frame)
