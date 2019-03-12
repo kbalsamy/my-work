@@ -2,6 +2,7 @@ from selenium import webdriver
 import selenium
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.options import Options
+# from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -60,7 +61,7 @@ def arrange_results(consumer, readings, charges):
     return final
 
 
-def plot_values(results):
+def plot_values(results, uname):
 
     if results:
         consumer = results.get('dispCompanyServiceNumber')
@@ -70,7 +71,7 @@ def plot_values(results):
 
     else:
         timestr = time.asctime()
-        logging.info('{} :values for {} are not found'.format(timestr, consumer))
+        logging.info('{} :values for {} are not found'.format(timestr, uname))
         return 'readings are not found'
 
 
@@ -79,7 +80,7 @@ def fetch(url, username, pword, month, year):
     options = Options()
     options.headless = True
     binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
-    driver = webdriver.Firefox(options=options, firefox_binary=binary)
+    driver = webdriver.Chrome(options=options, firefox_binary=binary)
     driver.get(url)
     try:
         login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-0")))
@@ -146,13 +147,13 @@ def main(url, pword, mnth, yr, uname=None, serlist=None):
 
     if uname:
         results = fetch(url, uname, pword, mnth, yr)
-        return plot_values(results)
+        return plot_values(results, uname)
     else:
         tablename1 = mnth + str(yr)
         tablename2 = 'charges' + mnth[0:2] + str(yr)
         db_con = db_connect()
         for s in serlist:
             val = fetch(url, s, pword, mnth, yr)
-            result = plot_values(val)
+            result = plot_values(val, uname)
             status = write_to_db(result, db_con, tablename1, tablename2)
         return status

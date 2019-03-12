@@ -37,6 +37,7 @@ class Application(Frame):
         self.width = width
         self.master.title(self.title)
         self.master.geometry('%dx%d' % (height, width))
+        self.master.icon()
         # Seperating working regions into three
         # Top frame built using Frame widgets
         self.top_frame = Frame(self.master, bg='pink', width=1050)
@@ -87,8 +88,6 @@ class Application(Frame):
         Pmw.aboutcopyright('Copyright Thiran Softwares 2019\nAll rights reserved')
         Pmw.aboutcontact(
             'For information about this application contact:\n' +
-            '  My Help Desk\n' +
-            '  Phone: +91 9176961009\n' +
             '  email: help@thiransoftwares.com'
         )
         about = Pmw.AboutDialog(self.master, title='About AMR Extractor', buttons=('OK',))
@@ -102,9 +101,9 @@ class Application(Frame):
         self.consumer_entry = Pmw.EntryField(self.sdd.interior(), labelpos='n', label_text='Consumer Number',
                                              validate='numeric')
         self.consumer_entry.pack()
-        self.consumer_pass = Pmw.EntryField(self.sdd.interior(), labelpos='n', label_text='Password',
-                                            entry_show='*', validate=None)
-        self.consumer_pass.pack()
+        # self.consumer_pass = Pmw.EntryField(self.sdd.interior(), labelpos='n', label_text='Password',
+        #                                     entry_show='*', validate=None)
+        # self.consumer_pass.pack()
 
         consumer_month = Pmw.OptionMenu(self.sdd.interior(), labelpos='w', label_text='Choose Month:',
                                         menubutton_textvariable=self.consumer_month, items=months)
@@ -125,7 +124,7 @@ class Application(Frame):
                 self.progressbar.configure(mode='indeterminate')
                 thread1 = threading.Thread(target=self.get_sd_results, kwargs={'queue': self.queue})
                 thread1.start()
-                self.progressbar.start()
+                # self.progressbar.start()
                 self.master.after(100, self.check_sd_results)
 
             else:
@@ -142,44 +141,40 @@ class Application(Frame):
             self.progressbar.stop()
             Button(self.display_frame, text='Clear', command=self.clear_displayframe).pack()
             manager = Table.Plotter(self.display_frame)
-            manager.plot_values(results)
-            timestr = time.asctime()
-            logging.info('{} : Data fetched for {}'.format(timestr, self.consumer_entry.getvalue()))
+            if results:
+                manager.plot_values(results)
+                timestr = time.asctime()
+                logging.info('{} : Data fetched for {}'.format(timestr, self.consumer_entry.getvalue()))
+            else:
+                self.Rstatus = Pmw.MessageDialog(self.master, title='Status', defaultbutton=0, buttons=('OK',), message_text='Data not found for {}'.format(self.consumer_entry.getvalue()), command=self.close_Rstatus)
+                self.Rstatus.activate(geometry='centerscreenfirst')
 
         except queue.Empty:
             self.master.after(100, self.check_sd_results)
 
+    def close_Rstatus(self, button):
+        self.Rstatus.deactivate()
+
     def get_sd_results(self, queue):
         #  concurrently getting the results via thread and store in the queue objects
         consumerNo = self.consumer_entry.getvalue()
-        password = self.consumer_pass.getvalue()
+        # password = self.consumer_pass.getvalue()
         mnth = self.consumer_month.get()
         yr = self.consumer_year.get()
         tablename1 = mnth + str(yr)
         tablename2 = 'charges' + mnth[0:2] + str(yr)
-        fin_results = []
-        fin_results.append(consumerNo)
-        db = db_connect()
-        cursor = db.cursor()
-        args1 = "SELECT * FROM {} WHERE consumer = '{}'".format(tablename1, consumerNo)
-        cursor.execute(args1)
-        red = cursor.fetchall()
+        cursor = db_connect().cursor()
+        readings = excel.get_consumer_from_db(cursor, tablename1, consumerNo)
+        charges = excel.get_charges_from_db(cursor, tablename2, consumerNo)
+        if readings and charges:
+            results = results_compact(readings, charges)
+            queue.put(results)
 
-        if red:
-            args2 = "SELECT * FROM {} WHERE consumer = '{}'".format(tablename2, consumerNo)
-            cursor.execute(args2)
-            chrgs = cursor.fetchall()
-            t1 = []
-            for row in red:
-                t1.append(row)
-            t1.pop(0)
-            fin_results.append(t1)
-            fin_results.append(chrgs)
-            print(fin_results)
-            queue.put(fin_results)
         else:
-            print('online search started')
-            results = api.main(url, password, mnth, yr, uname=consumerNo)
+            self.consumer_pass = Pmw.PromptDialog(self.master, title='Online search window', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK',))
+            self.consumer_pass.activate(geometry='centerscreenfirst')
+            self.progressbar.start()
+            results = api.main(url, self.consumer_pass.get(), mnth, yr, uname=consumerNo)
             queue.put(results)
 
     def clear_displayframe(self):
@@ -207,7 +202,7 @@ class Application(Frame):
 
     def execute_bdownload(self, button):
         if button == 'Download':
-            self.pword_dialog = Pmw.PromptDialog(self.master, title='Password', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK', 'Cancel'))
+            self.pword_dialog = Pmw.PromptDialog(self.master, title='Password', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK',))
             self.pword_dialog.activate(geometry='centerscreenfirst')
             self.bdownload.deactivate()
             self.progressbar.start()

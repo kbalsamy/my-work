@@ -1,3 +1,4 @@
+import tkinter
 from tkinter import *
 from constants import *
 import file_creator as excel
@@ -31,12 +32,14 @@ class databaseFrame(Frame):
         Label(search_pane, text='Search Database here', anchor='w').pack(side=TOP, fill=X, expand=1)
         Label(search_pane, text='Select available Database here', anchor='w').pack(side=LEFT)
         self.tablename.set('select')
-        self.op = OptionMenu(search_pane, self.tablename, *self.av_db, command=self.getTablename)
+        self.op = OptionMenu(search_pane, self.tablename, *self.av_db)
         self.op.pack(side=LEFT, anchor='w')
+        # self.op.configure(state="disabled")
         btn2 = Button(search_pane, text='Clear', command=self.clear_display)
         btn2.pack(side=LEFT)
         self.dlbtn = Button(search_pane, text='Download Excel', state=DISABLED, command=self.file_to_save)
         self.dlbtn.pack(side=LEFT)
+        # self.checkbuttonvar = IntVar()
 
         # database search tool
         search_pane2 = Frame(self.master, bd=5, relief=GROOVE)
@@ -52,21 +55,13 @@ class databaseFrame(Frame):
         Button(search_pane2, text='Clear', command=self.clear_display).pack(side=LEFT)
 
     def check_db_latest(self):
+
         self.menu.entryconfig('Single Download', state='active')
-        self.av_db = excel.get_table_name(db_connect())
-        menu = self.op['menu']
-        menu.delete(0, 'end')
+
+        self.op['menu'].delete(0, 'end')
         for val in self.av_db:
-            menu.add_command(label=val, command=lambda: self.tablename.set(val))
+            self.op['menu'].add_command(label=val, command=lambda val=val: self.tablename.set(val))
 
-        if self.tablename.get() == 'Not available' or self.tablename.get() == 'select':
-            self.dlbtn.configure(state=DISABLED)
-        else:
-            self.dlbtn.configure(state=ACTIVE)
-
-    def getTablename(self, event):
-        # function used to check the optionmenu selection and trigger button availabilty
-        selected = self.tablename.get()
         if self.tablename.get() == 'Not available' or self.tablename.get() == 'select':
             self.dlbtn.configure(state=DISABLED)
         else:
@@ -77,8 +72,10 @@ class databaseFrame(Frame):
         for w in wid:
             w.destroy()
         self.btn3.configure(state=ACTIVE)
+        self.menu.entryconfig('Single Download', state='active')
 
     def search_db(self):
+        self.clear_display()
         self.btn3.configure(state=DISABLED)
         c = self.consumer.getvalue()
         m = self.month.get()
