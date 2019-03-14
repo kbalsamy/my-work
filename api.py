@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import requests
-from requests.auth import HTTPBasicAuth
 import pprint
 from constants import *
 import time
@@ -70,8 +69,6 @@ def plot_values(results, uname):
         return arrange_results(consumer, getReading, getCharges)
 
     else:
-        timestr = time.asctime()
-        logging.info('{} :values for {} are not found'.format(timestr, uname))
         return None
 
 
@@ -79,9 +76,9 @@ def fetch(url, username, pword, month, year):
 
     options = Options()
     options.headless = True
-    # binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
-    # driver = webdriver.Firefox(options=options, firefox_binary=binary, executable_path='geckodriver.exe')
-    driver = webdriver.Firefox(options=options, executable_path='geckodriver.exe')
+    binary = FirefoxBinary("C:/Program Files/Mozilla Firefox/firefox.exe")
+    driver = webdriver.Firefox(options=options, firefox_binary=binary, executable_path='geckodriver.exe')
+    # driver = webdriver.Firefox(options=options, executable_path='geckodriver.exe')
     driver.get(url)
     try:
         login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "mat-input-0")))
@@ -101,8 +98,8 @@ def fetch(url, username, pword, month, year):
 
     except (selenium.common.exceptions.WebDriverException, selenium.common.exceptions.TimeoutException) as e:
         driver.quit()
-        status = "Error1"
-        logging.info('check your internet connction or contact admin')
+        timestr = time.asctime()
+        logging.info('{} :Connection {} not found. check your internet connection'.format(timestr, username))
         return None
 
 
@@ -113,7 +110,7 @@ def write_to_db(results, dbcon, tablename1, tablename2):
     cursor.execute(create_table1)
     create_table2 = """CREATE TABLE IF NOT EXISTS {} (consumer TEXT, code TEXT, description TEXT, charges TEXT, FOREIGN KEY (consumer) REFERENCES {}(consumer))""".format(tablename2, tablename1)
     cursor.execute(create_table2)
-    if results != 'readings are not found':
+    if results != 'readings are not found' and results is not None:
         consumer = results[0]
         row = results[1]
         row.insert(0, results[0])
@@ -129,7 +126,7 @@ def write_to_db(results, dbcon, tablename1, tablename2):
                 cursor.execute(create_table2, chaque)
             dbcon.commit()
             timestr = time.asctime()
-            logging.info('{} :values for {}are stored in database'.format(timestr, consumer))
+            logging.info('{} :values for {} are stored in database'.format(timestr, consumer))
             return None
 
         except sqlite3.IntegrityError as e:
@@ -140,11 +137,11 @@ def write_to_db(results, dbcon, tablename1, tablename2):
 
     else:
         timestr = time.asctime()
-        logging.info('{} :values for {} not found'.format(timestr, consumer))
+        logging.info('{} :values not found'.format(timestr))
         return " No results found"
 
 
-def main(url, pword, mnth, yr, uname=None, serlist=None):
+def main(url, pword, mnth, yr, pbar=None, uname=None, serlist=None):
 
     if uname:
         results = fetch(url, uname, pword, mnth, yr)
@@ -155,6 +152,11 @@ def main(url, pword, mnth, yr, uname=None, serlist=None):
         db_con = db_connect()
         for s in serlist:
             val = fetch(url, s, pword, mnth, yr)
-            result = plot_values(val, uname)
-            status = write_to_db(result, db_con, tablename1, tablename2)
-        return status
+            result = plot_values(val, s)
+            if result is not None:
+                pbar.step()
+                status = write_to_db(result, db_con, tablename1, tablename2)
+            else:
+                pbar.step()
+                continue
+        return 'Finished'

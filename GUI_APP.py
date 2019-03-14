@@ -143,6 +143,8 @@ class Application(Frame):
             Button(self.display_frame, text='Clear', command=self.clear_displayframe).pack()
             manager = Table.Plotter(self.display_frame)
             if results:
+                self.dbbtn = Button(self.display_frame, text='Add to DB', command=lambda: self.Add_to_DB(results))
+                self.dbbtn.pack()
                 manager.plot_values(results)
                 timestr = time.asctime()
             else:
@@ -154,6 +156,19 @@ class Application(Frame):
 
     def close_Rstatus(self, button):
         self.Rstatus.deactivate()
+
+    def Add_to_DB(self, results):
+        consumerNo = self.consumer_entry.getvalue()
+        mnth = self.consumer_month.get()
+        yr = self.consumer_year.get()
+        tablename1 = mnth + str(yr)
+        tablename2 = 'charges' + mnth[0:2] + str(yr)
+        con = db_connect()
+        x = list(results[1])
+        results.pop(1)
+        results.insert(1, x)
+        api.write_to_db(results, con, tablename1, tablename2)
+        self.dbbtn.configure(state=DISABLED)
 
     def get_sd_results(self, queue):
         #  concurrently getting the results via thread and store in the queue objects
@@ -212,8 +227,10 @@ class Application(Frame):
             self.pword_dialog = Pmw.PromptDialog(self.master, title='Password', label_text='Password:', entryfield_labelpos='n', entry_show='*', defaultbutton=0, buttons=('OK',))
             self.pword_dialog.activate(geometry='centerscreenfirst')
             self.bdownload.deactivate()
-            self.progressbar.configure(mode='indeterminate')
-            self.progressbar.start()
+            self.progressbar.configure(mode='determinate')
+            self.progressbar['value'] = 1
+            self.progressbar['maximum'] = 93
+            # self.progressbar.start()
             # place thread here
             threading.Thread(target=self.get_batch_results, args=(self.queue,)).start()
             self.master.after(100, self.show_batch_results)
@@ -224,7 +241,7 @@ class Application(Frame):
         self.menubar.entryconfig('Batch Download', state='disabled')
         try:
             results = self.queue.get(0)
-            self.progressbar.stop()
+            # self.progressbar.stop()
             self.messbox = Pmw.MessageDialog(self.master, title='Batch download status', message_text=' Download completed', buttons=('OK',), command=self.db_spread_display)
             self.messbox.activate(geometry='centerscreenfirst')
             timestr = time.asctime()
@@ -241,7 +258,7 @@ class Application(Frame):
 
     def get_batch_results(self, queue):
 
-        results = api.main(url, self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), serlist=self.service_list)
+        results = api.main(url, self.pword_dialog.get(), self.bd_month.get(), self.bd_year.get(), pbar=self.progressbar, serlist=self.service_list)
         queue.put(results)
 
     def db_spread_display(self, button):

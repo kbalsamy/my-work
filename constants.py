@@ -83,3 +83,5 @@ def db_connect():
 
 
 m = ['079204720584', ['234', '153', '54', '684', '486', '17973', '12645', '3573', '63648', '28233', 17739.0, 12492.0, 3519.0, 62964.0, 27747.0, '6307', '4490', '7960', '75115', '13983.86'], [['C002', 'O&M Charges', '22668'], ['C003', 'Transmission Charges', '53153'], ['C004', 'System Operation Charges', '591'], ['C005', 'RKvah Penalty', '1242'], ['C006', 'Negative Energy Charges', '0'], ['C007', 'Scheduling Charges', '2240'], ['C001', 'Meter Reading Charges', '300']]]
+
+n = ['079204720584', ('171', '333', '153', '648', '828', '46962', '15246', '5130', '163125', '57006', 46791.0, 14913.0, 4977.0, 162477.0, 56178.0, 6307.0, 9747.0, 6105.0, 66715.0, 13983.0), [('C002', 'O&M Charges', '49384'), ('C003', 'Transmission Charges', '115798'), ('C004', 'System Operation Charges', '1287'), ('C005', 'RKvah Penalty', '29651'), ('C006', 'Negative Energy Charges', ''), ('C007', 'Scheduling Charges', '4880'), ('C001', 'Meter Reading Charges', '300')]]
